@@ -9,6 +9,10 @@ __pycache__/
 # Mi Entorno
 maqueta/
 
+# Carpeta Media
+
+latirana/media/
+
 # Distribution / packaging
 .Python
 build/
