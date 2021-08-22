@@ -3,20 +3,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Archivo La Tirana</title>
+    <script src="{% static 'jquery-3.6.0.min.js'%}"></script>
      <link rel="stylesheet" href="{% static 'stylesheet.css'%}">
-     <link rel="stylesheet" href="{% static 'js/dropzone-5.7.0/dist/dropzone.css'%}">
-     <script src="{% static 'js/dropzone-5.7.0/dist/dropzone.js'%}"></script>
+     <link rel="stylesheet" href="{% static 'js/dist/css/upload.css'%}">
+     <script src="{% static 'javascript.js'%}"></script>
+     <script src="{% static 'js/dist/js/core.js'%}"></script>
+     <script src="{% static 'js/dist/js/upload.js'%}"></script>
      <script src="https://kit.fontawesome.com/ee5b7451fa.js" crossorigin="anonymous"></script>
+      
 </head>
 <body>
-    <nav><a href="upload">Upload</a></nav>
+    <nav>
+        <a href="home" class="logo">
+            <img src="{% static 'logo.png'%}">
+        </a>
+        <a href="upload" class="upload">
+            <i class="fas fa-upload"></i>
+        </a>
+    </nav>
     <div class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
 </body>
 <footer>
-Info
+    <ul class="footer_links">
+        <li>
+            <a href="info">Información</a>
+        </li>
+        <li>
+            <a></a>
+        </li>
+        <li>
+            <a></a>
+        </li>
+    </ul>
 </footer>
 </html>

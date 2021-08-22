@@ -9,10 +9,31 @@ body {
     background: var(--white);
     margin: 0;
 }
+/* NAVEGADOR */
 
 nav {
     font-size: 20pt;
+    padding: 5% 10%;
+    height: 30px;
 }
+
+nav a:link, nav a:visited {
+    color: var(--darkblue)
+}
+
+nav a:hover {
+    color: var(--yellow);
+}
+
+nav a.logo {
+    float: left;
+}
+
+nav a.upload {
+    float: right;
+}
+
+/* TEXTOS */
 
 h1 {
 
@@ -27,35 +48,123 @@ h3 {
 }
 
 h1, h2 {
-
+    font-family: ;
 }
 
 p {
-
+    margin: 0;
 }
 
 h3, p {
+    font-family:;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:hover {
+    transition: 0.3s;
+}
+
+a:link {
 
 }
+
+a:hover {
+
+}
+
+/* WRAPPER */
+
+div.wrapper {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  @media (min-width: 0px) and (max-width: 755px) {
+    div.wrapper {
+      width: 504px;
+    }
+  }
+  
+  @media (min-width: 756px) and (max-width: 1007px) {
+    div.wrapper {
+      width: 756px;
+    }
+
+  }
+  
+  @media (min-width: 1008px) and (max-width: 1259px) {
+    div.wrapper {
+      width: 1008px;
+    }
+
+  }
+  
+  @media (min-width: 1260px) and (max-width: 1511px) {
+    div.wrapper {
+      width: 1260px;
+    }
+  }
+  
+  @media (min-width: 1512px) and (max-width: 1763px) {
+    div.wrapper {
+      width: 1512px;
+    }
+
+  }
+  
+  @media (min-width: 1764px) and (max-width: 2015px) {
+    div.wrapper {
+      width: 1764px;
+    }
+  }
 
 /* THUMBNAILS */
 
 .post {
     width: 300px;
-    height: 300px;
-    overflow: hidden;
+    height: 400px;
+    margin: 10px;
+    background-size: cover;
 }
 
-.post img {
-    width: 100%;
-    float: left;
+.post a {
+    color: var(--white)
+}
+
+.post, .post a .post_tag {
+    border-radius: 5px;
+}
+
+.post:hover {
+    
 }
 
 .post .post_tag {
-    width: 300px;
-    height: 300px;
-    float: left;
-    top: -300px;
+    width: 80%;
+    height: 100%;
+    padding: 0 10%;
+    background: rgba(15, 25, 35, 0.5);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.post .post_tag:hover {
+    backdrop-filter: blur(5px);
+    opacity: 1;
+}
+
+.post .post_tag div p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
 
 /* UPLOAD */
@@ -77,4 +186,16 @@ footer {
     padding: 50px;
     position: fixed;
     bottom: 0;
+}
+
+footer ul.footer_links li {
+    display: inline;
+}
+
+footer ul.footer_links li a {
+    color: var(--white);
+}
+
+footer ul.footer_links li a:hover {
+    color: var(--yellow);
 }

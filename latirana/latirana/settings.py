@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/src/'
-# STATIC_ROOT = str(BASE_DIR.joinpath('src')) # new
+# STATIC_ROOT = str(BASE_DIR.joinpath('src'))
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('src')),) # new
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # new
 

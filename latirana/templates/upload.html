@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<form id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Subir</button>
+    <!--{{ form.as_p }}-->
+    <input type="text" name="tags" maxlength="255" required="" id="id_tags">
+    <input type="file" name="image" accept="image/*" required="" id="id_image">
+    <button type="submit" id="postsubmit">Subir</button>
 </form>
+
+<div class="upload">
+    
+</div>
 
 <!--<div class="formulario">
     <form class="dropzone" id="my-awesome-dropzone">
@@ -14,7 +19,7 @@
             <input type="file" name="file" />
         </div>
         <div class="dz-message" data-dz-message>
-            <i class="fas fa-file-upload"></i><br>
+            <i class="fas fa-upload"></i><br>
             <span>Sube la weá</span>
         </div>
     </form>
