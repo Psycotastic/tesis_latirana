@@ -1,0 +1,80 @@
+:root {
+    --white: #f5f5f5;
+    --blue: rgb(40, 55, 130);
+    --darkblue: rgb(15, 25, 35);
+    --yellow: rgb(230, 175, 70);
+}
+
+body {
+    background: var(--white);
+    margin: 0;
+}
+
+nav {
+    font-size: 20pt;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h1, h2 {
+
+}
+
+p {
+
+}
+
+h3, p {
+
+}
+
+/* THUMBNAILS */
+
+.post {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.post img {
+    width: 100%;
+    float: left;
+}
+
+.post .post_tag {
+    width: 300px;
+    height: 300px;
+    float: left;
+    top: -300px;
+}
+
+/* UPLOAD */
+
+.formulario {
+    width: 1200px;
+    height: 600px;
+}
+
+.formulario .dropzone {
+    width: 50%;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--darkblue);
+    width: 100%;
+    padding: 50px;
+    position: fixed;
+    bottom: 0;
+}

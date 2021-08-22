@@ -1,1 +1,31 @@
-<h1>b</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Subir</button>
+</form>
+
+<!--<div class="formulario">
+    <form class="dropzone" id="my-awesome-dropzone">
+        <div class="fallback">
+            <input type="file" name="file" />
+        </div>
+        <div class="dz-message" data-dz-message>
+            <i class="fas fa-file-upload"></i><br>
+            <span>Sube la weá</span>
+        </div>
+    </form>
+</div>-->
+
+{% if img_obj %}
+
+<p>Subido exitosamente: {{img_obj.tags}}</p>
+<img src="{{ img_obj.image.url }}">
+
+{% endif %}
+
+
+{% endblock %}

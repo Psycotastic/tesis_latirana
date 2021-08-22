@@ -1,1 +1,12 @@
-<h1>ª</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for post in post_list %}
+<div class="post">
+    <img src="media/{{ post.image }}">
+    <div class="post_tag">{{ post.tags }}</div>
+</div>
+{% endfor %}
+
+{% endblock %}

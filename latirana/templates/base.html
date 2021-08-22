@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+     <link rel="stylesheet" href="{% static 'stylesheet.css'%}">
+     <link rel="stylesheet" href="{% static 'js/dropzone-5.7.0/dist/dropzone.css'%}">
+     <script src="{% static 'js/dropzone-5.7.0/dist/dropzone.js'%}"></script>
+     <script src="https://kit.fontawesome.com/ee5b7451fa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav><a href="upload">Upload</a></nav>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+<footer>
+Info
+</footer>
+</html>
