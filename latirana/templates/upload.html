@@ -4,17 +4,20 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <!--{{ form.as_p }}-->
-    <input type="text" name="tags" maxlength="255" required="" id="id_tags">
-    <div class="drop-zone">
-        <input class="drop-zone__input" type="file" name="image" accept="image/*" required="" id="id_image">
-        <div class="drop-zone__prompt">Arrastrar imagen aquí</div>
+    <div class="upload">
+        <div class="drop-zone">
+            <input class="drop-zone__input" type="file" name="image" accept="image/*" required="" id="id_image">
+            <div class="drop-zone__prompt">Arrastrar imagen aquí</div>
+        </div>
+    </div>
+    <div class="input_text">
+        {{ form.guild }}
+        {{ form.performance }}
+        {{ form.year }}
+        {{ form.costume }}
     </div>
     <button type="submit" id="postsubmit">Subir</button>
 </form>
-
-<div class="upload">
-    
-</div>
 
 {% if img_obj %}
 
