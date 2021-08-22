@@ -54,7 +54,7 @@ ROOT_URLCONF = 'latirana.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'latirana.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lw40zctpwfwr6lqf',
+        'USER': 'cu3u6zwr1irl5qoq',
+        'PASSWORD': 'yiejjhg24gx44nq8',
+        'HOST': 'vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
