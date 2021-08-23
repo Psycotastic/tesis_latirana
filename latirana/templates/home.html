@@ -5,7 +5,9 @@
 {% for post in post_list %}
 <div class="post" style="background-image: url('media/{{ post.image }}')">
     
-    <a href="">
+    <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
+        data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
+        onclick="displayModal(this);">
         <div class="post_tag">
             <div>
                 <p>{{ post.guild }}</p>
@@ -14,5 +16,20 @@
     </a>
 </div>
 {% endfor %}
+
+<div id="photoModal" class="modal">
+    <div class="modal-content">
+        <img id="imageModal" src=""/>
+        <div>
+            <h1 id="guildModal"></h1>
+            <p id="performanceModal"></p>
+            <p id="yearModal"></p>
+            <p id="costumeModal"></p>
+        </div>
+        <div class="equis">
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

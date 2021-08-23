@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" class="f-upload">
     {% csrf_token %}
     <!--{{ form.as_p }}-->
     <div class="upload">
         <div class="drop-zone">
             <input class="drop-zone__input" type="file" name="image" accept="image/*" required="" id="id_image">
-            <div class="drop-zone__prompt">Arrastrar imagen aquí</div>
+            <div class="drop-zone__prompt">
+                <p class="icon"><i class="fas fa-upload"></i></p>
+                <p class="here">Arrastrar imagen aquí</p>
+            </div>
         </div>
     </div>
     <div class="input_text">
+        <h1>Campos a rellenar</h1>
+        <p>*Campos obligatorios</p>
         {{ form.guild }}
         {{ form.performance }}
         {{ form.year }}
         {{ form.costume }}
+        <button type="submit" id="postsubmit">Subir</button>
     </div>
-    <button type="submit" id="postsubmit">Subir</button>
 </form>
 
 {% if img_obj %}

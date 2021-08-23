@@ -63,6 +63,10 @@ h3, p {
     font-family:;
 }
 
+h1, h2, h3, p {
+    color: var(--darkblue);
+}
+
 a {
     text-decoration: none;
 }
@@ -92,39 +96,60 @@ div.wrapper {
     div.wrapper {
       width: 504px;
     }
+    div.upload {
+        width: 200px;
+        height: 300px;
+      }
   }
   
   @media (min-width: 756px) and (max-width: 1007px) {
     div.wrapper {
       width: 756px;
     }
-
+    div.upload {
+        width: 300px;
+        height: 350px;
+      }
   }
   
   @media (min-width: 1008px) and (max-width: 1259px) {
     div.wrapper {
       width: 1008px;
     }
-
+    div.upload {
+        width: 400px;
+        height: 400px;
+      }
   }
   
   @media (min-width: 1260px) and (max-width: 1511px) {
     div.wrapper {
       width: 1260px;
     }
+    div.upload {
+        width: 550px;
+        height: 450px;
+      }
   }
   
   @media (min-width: 1512px) and (max-width: 1763px) {
     div.wrapper {
       width: 1512px;
     }
-
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
   }
   
   @media (min-width: 1764px) and (max-width: 2015px) {
     div.wrapper {
       width: 1764px;
     }
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
   }
 
 /* THUMBNAILS */
@@ -142,10 +167,6 @@ div.wrapper {
 
 .post, .post a .post_tag {
     border-radius: 5px;
-}
-
-.post:hover {
-    
 }
 
 .post .post_tag {
@@ -173,15 +194,92 @@ div.wrapper {
     text-transform: capitalize;
 }
 
-/* UPLOAD */
+/* POP UP */
 
-.formulario {
-    width: 1200px;
-    height: 600px;
+div.modal-content div.equis {
+    width: 20px;
+    height: 20px;
+    line-height: 15pt;
+    transition: 0.3s;
 }
 
-.formulario .dropzone {
+div.modal-content div.equis:hover {
+    color: var(--darkblue);
+}
+
+div.modal-content img#imageModal {
+    max-width: 40%;
+    margin: 1%;
+}
+
+div.modal-content h1,
+div.modal-content p {
+    text-transform: capitalize;
+}
+
+/* FORMULARIO */
+
+div.wrapper form.f-upload {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* DIV.UPLOAD */
+
+div.upload {
+    margin-right: 2%;
+}
+
+div.upload p.icon {
+    font-size: 40px;
+}
+
+div.upload p {
+    color: var(--blue)
+}
+
+/* TEXTO DEL FORMULARIO */
+
+div.input_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
+}
+
+div.input_text select,
+div.input_text input {
+    background: var(--blue);
+    color: var(--yellow);
+    border: none;
+    border-radius: 3px;
+}
+
+div.input_text select#id_guild,
+div.input_text input#id_performance,
+div.input_text input#id_year,
+div.input_text input#id_costume {
+    padding: 5px;
+}
+
+button#postsubmit {
+    width: 100px;
+    background: var(--yellow);
+    color: var(--blue);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    cursor:pointer;
+}
+
+button#postsubmit:hover {
+    background: var(--blue);
+    color: var(--yellow);
+}
+
+button#postsubmit:active {
+    background: var(--darkblue);
+    color: var(--yellow);
 }
 
 /* FOOTER */

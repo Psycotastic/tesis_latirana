@@ -12,9 +12,9 @@ GUILDS = (
 
 class Post(models.Model):
     image = models.ImageField(upload_to='images')
-    performance = models.CharField(max_length=255, default="baile")
-    year = models.CharField(max_length=4, default="año")
-    costume = models.CharField(max_length=255, default="vestimenta")
+    performance = models.CharField(max_length=255)
+    year = models.CharField(max_length=4)
+    costume = models.CharField(max_length=255)
     guild = models.CharField(max_length=255, default="Sociedad Religiosa Chilenitos de Santa Teresita", choices=GUILDS)
 
     def __str__(self):
