@@ -14,12 +14,14 @@
         </div>
     </div>
     <div class="input_text">
-        <h1>Campos a rellenar</h1>
-        <p>*Campos obligatorios</p>
+        <div>
+            <h1>Campos a rellenar</h1>
+            <p>∗ Campos obligatorios</p>
+        </div>
         {{ form.guild }}
-        {{ form.performance }}
-        {{ form.year }}
-        {{ form.costume }}
+        <div class="input">{{ form.performance }}<p>∗</p></div>
+        <div class="input">{{ form.year }}<p>∗</p></div>
+        <div class="input">{{ form.costume }}<p>∗</p></div>
         <button type="submit" id="postsubmit">Subir</button>
     </div>
 </form>

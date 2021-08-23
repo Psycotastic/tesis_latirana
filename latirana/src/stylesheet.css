@@ -13,6 +13,32 @@ html,body {
     padding: 0px;
     overflow-x: hidden; 
 }
+
+@font-face {
+    font-family: 'Chucara';
+    src: url('../src/fonts/Chucara-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../src/fonts/Chucara-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../src/fonts/Chucara-Regular.woff') format('woff'), /* Modern Browsers */
+         url('../src/fonts/Chucara-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('../src/fonts/Chucara-Regular.svg#6dc739d53dfa38f1fbc56f353d69d076') format('svg'); /* Legacy iOS */
+         
+    font-style:   normal;
+    font-weight:  400;
+  }
+  
+@font-face {
+    font-family: 'Chucara';
+    src: url('../src/fonts/Chucara-Italic.eot'); /* IE9 Compat Modes */
+    src: url('../src/fonts/Chucara-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../src/fonts/Chucara-Italic.woff') format('woff'), /* Modern Browsers */
+         url('../src/fonts/Chucara-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('../src/fonts/Chucara-Italic.svg#4a79ccc6c71b93867b7a10ba1c16dd7c') format('svg'); /* Legacy iOS */
+         
+    font-style:   italic;
+    font-weight:  400;
+  }
+  
+
 /* NAVEGADOR */
 
 nav {
@@ -51,23 +77,17 @@ h3 {
 
 }
 
-h1, h2 {
-    font-family: ;
-}
-
 p {
     margin: 0;
 }
 
-h3, p {
-    font-family:;
-}
-
-h1, h2, h3, p {
+h1, h2, h3, p, label {
+    font-family: 'Chucara','Times New Roman', Times, serif;
     color: var(--darkblue);
 }
 
 a {
+    font-family: 'Chucara','Times New Roman', Times, serif;
     text-decoration: none;
 }
 
@@ -91,7 +111,9 @@ div.wrapper {
     display: flex;
     flex-wrap: wrap;
   }
-  
+
+/* RESPONSIVO */
+
   @media (min-width: 0px) and (max-width: 755px) {
     div.wrapper {
       width: 504px;
@@ -150,6 +172,21 @@ div.wrapper {
         width: 600px;
         height: 500px;
       }
+
+    div.modal-content {
+        max-width: 1000px;
+      }
+    
+    div.modal-content div.modal-inner div {
+        width: 500px;
+    }
+
+    div.modal-content img#imageModal {
+        max-height: 700px;
+        margin: 1%;
+        height: auto;
+    }
+    
   }
 
 /* THUMBNAILS */
@@ -184,6 +221,7 @@ div.wrapper {
 }
 
 .post .post_tag div p {
+    color: var(--white);
     margin: 0;
     position: absolute;
     top: 50%;
@@ -201,15 +239,23 @@ div.modal-content div.equis {
     height: 20px;
     line-height: 15pt;
     transition: 0.3s;
+    float: right;
 }
 
 div.modal-content div.equis:hover {
     color: var(--darkblue);
 }
 
+div.modal-content div.modal-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
 div.modal-content img#imageModal {
     max-width: 40%;
     margin: 1%;
+    height: auto;
 }
 
 div.modal-content h1,
@@ -247,6 +293,25 @@ div.input_text {
     width: 50%;
 }
 
+div.input_text div h1 {
+    margin: 0;
+}
+
+div.input_text div p {
+    color: red;
+    font-size: 10pt;
+}
+
+div.input_text input {
+    float: left;
+    width: 95%
+}
+
+div.input_text div.input p {
+    float: left;
+    font-size: 15pt;
+}
+
 div.input_text select,
 div.input_text input {
     background: var(--blue);
@@ -270,6 +335,7 @@ button#postsubmit {
     border-radius: 3px;
     padding: 5px;
     cursor:pointer;
+    font-family: 'Chucara','Times New Roman', Times, serif;
 }
 
 button#postsubmit:hover {
