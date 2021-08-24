@@ -6,8 +6,9 @@ from .models import Post
 
 def index(request):
     post_list = Post.objects.all()
-    for p in post_list: print (p)
-    return render(request, 'home.html', {'post_list': post_list})
+    print(type(post_list))
+    sorted_list = post_list.order_by('-id')
+    return render(request, 'home.html', {'post_list': sorted_list})
 
 def upload(request):
     # return render(request, 'upload.html')
