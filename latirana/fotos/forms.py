@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.formsets import MAX_NUM_FORM_COUNT
 from .models import Post
 
 class ImageForm(forms.ModelForm):
@@ -16,3 +17,11 @@ class ImageForm(forms.ModelForm):
             'year': forms.TextInput(attrs={'placeholder': 'Año en que se sacó la fotografía'}),
             'costume': forms.TextInput(attrs={'placeholder': 'Tipo de vestimenta según ritmo'}),
         }
+    
+class SearchForm(forms.Form):
+    def init(self, args, **kwargs):
+        super().init(args, **kwargs)
+        self.fields['buscar'].required = True
+    
+    buscar = forms.CharField(max_length=500)
+        

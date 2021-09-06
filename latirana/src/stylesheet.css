@@ -11,7 +11,7 @@ html,body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -100,14 +100,6 @@ h1 {
     font-family: 'Chucara','Times New Roman', Times, serif;
 }
 
-h2 {
-
-}
-
-h3 {
-
-}
-
 p {
     margin: 0;
 }
@@ -126,14 +118,6 @@ a {
 
 a:link, a:hover {
     transition: 0.3s;
-}
-
-a:link {
-
-}
-
-a:hover {
-
 }
 
 /* WRAPPER */
@@ -238,7 +222,7 @@ div.wrapper {
 }
 
 .post, .post a .post_tag {
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .post .post_tag {
@@ -299,12 +283,27 @@ div.modal-content p {
     text-transform: capitalize;
 }
 
+div.modal-content label,
+div.modal-content p {
+    font-size: 12pt;
+}
+
+div.modal-content label {
+    font-weight: 700;
+}
+
+div.modal-content p {
+    margin-bottom: 10px;
+}
+
 /* FORMULARIO */
 
 div.wrapper form.f-upload {
     display: flex;
     flex-wrap: nowrap;
 }
+
+
 
 /* DIV.UPLOAD */
 
@@ -393,21 +392,29 @@ button#postsubmit:active {
 footer {
     background: var(--blue);
     width: 80%;
-    padding: 2% 10%;
-    position: fixed;
+    padding: 2% 10% 3% 10%;
+    position: inherit;
     bottom: 0;
 }
 
 footer div.footer_links {
-    float: left;
     display: flex;
-    width: 40%;
+    width: 30%;
     justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    height: 130px;
+    padding: 20px;
+}
+
+footer div.footer_links div {
+    border-bottom: 1px solid var(--yellow);
+    padding: 15px 0 10px 0;
 }
 
 footer div.footer_links a {
     color: var(--white);
-    font-size: 10pt;
+    font-size: 12pt;
     letter-spacing: -0.4px;
 }
 

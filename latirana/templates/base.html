@@ -19,6 +19,13 @@
         <a href="/" class="logo">
             <img src="{% static 'logo.png'%}">
         </a>
+
+        <form method="post" action="search_results/">
+            {% csrf_token %}
+            <input class="searchbar" type="text" name="buscar">
+            <button type="submit">Buscar</button>
+        </form>
+
         <a href="/upload" class="upload">
             <i class="fas fa-upload"></i>
         </a>

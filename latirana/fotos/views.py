@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import ImageForm
+from .forms import SearchForm
 from .models import Post
 
 
@@ -23,3 +24,14 @@ def upload(request):
     else:
         form = ImageForm()
     return render(request, 'upload.html', {'form': form})
+
+def search(request):
+    search_list = []
+    if request.method == 'POST' :
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            entrada = form['buscar'].value()
+            param = '%' + entrada + '%'
+            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param])
+
+    return render(request, 'search_results.html', {'search_list': search_list})

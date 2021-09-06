@@ -11,7 +11,7 @@ function displayModal(param) {
     if(!modal){
         modal = document.getElementById("photoModal");
     }
-    document.getElementById("imageModal").src="media/" + image;
+    document.getElementById("imageModal").src="/media/" + image;
     updateText("performanceModal", performance);
     updateText("yearModal", year);
     updateText("guildModal", guild);
