@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from fotos import views
 
 urlpatterns = [
     path('', include('fotos.urls')),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('', views.MainView.as_view(), name='index'),
+    path('posts/<int:num_posts>/', views.PostJsonListView.as_view(), name='post-json-view')
 ]
 
 if settings.DEBUG:

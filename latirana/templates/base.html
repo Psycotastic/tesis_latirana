@@ -11,24 +11,26 @@
      <script src="{% static 'float-panel.js'%}"></script>
      <script src="{% static 'modal.js'%}"></script>
      <link rel="stylesheet" href="{% static 'modal.css'%}">
+     <script src="{% static 'jquery-3.6.0.min.js'%}"></script>
+     <script src="{% static 'main.js'%}"></script>
       
 </head>
 <body>
     <nav>
         <div class="float-panel" data-top="0" data-scroll="200">
-        <a href="/" class="logo">
-            <img src="{% static 'logo.png'%}">
-        </a>
+            <a href="/" class="logo">
+                <img src="{% static 'logo.png'%}">
+            </a>
 
-        <form method="post" action="search_results/">
-            {% csrf_token %}
-            <input class="searchbar" type="text" name="buscar">
-            <button type="submit">Buscar</button>
-        </form>
+            <form method="post" action="search_results/" class="search-bar">
+                {% csrf_token %}
+                <input class="search-input" type="text" name="buscar">
+                <button type="submit" class="search-button">Buscar</button>
+            </form>
 
-        <a href="/upload" class="upload">
-            <i class="fas fa-upload"></i>
-        </a>
+            <a href="/upload" class="upload">
+                <i class="fas fa-upload"></i>
+            </a>
         </div>
     </nav>
     <div class="wrapper">

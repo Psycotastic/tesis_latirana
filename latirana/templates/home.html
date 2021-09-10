@@ -2,20 +2,7 @@
 
 {% block content %}
 
-{% for post in post_list %}
-<div class="post" style="background-image: url('media/{{ post.image }}')">
-    
-    <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
-        data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
-        onclick="displayModal(this);">
-        <div class="post_tag">
-            <div>
-                <p>{{ post.guild }}</p>
-            </div>
-        </div>
-    </a>
-</div>
-{% endfor %}
+<div id="posts-box"></div>
 
 <div id="photoModal" class="modal">
     <div class="modal-content">
@@ -32,6 +19,12 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="see-more">
+    <div id="spinner-box" class="not-visible">Cargando...</div>
+    <div id="no-more-box" class="not-visible">No existen más registros</div>
+    <button id="load-more">Más...</button>
 </div>
 
 {% endblock %}
