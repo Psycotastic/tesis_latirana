@@ -54,15 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /*Descargar ficha*/
     $('#download-pdf').click(function() {
+        $(".ignorePDF").hide();
         let aux = $('#ignorePDF').html();
-        html2canvas($('#photoModal')[0], {
-            onrendered: function(canvas) {
-                let img = canvas.canvas.toDataURL('image/png'); 
-                let doc = new jsPDF('p', 'mm');
-                doc.addImage(img, 'PNG', 10, 10);
-                doc.save('sample-file.pdf');
-            }
-        });
+        print(aux);
+        $(".ignorePDF").show();
     });
-
 });
