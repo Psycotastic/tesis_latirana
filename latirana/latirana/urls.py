@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.MainView.as_view(), name='index'),
     path('posts/<int:num_posts>/', views.PostJsonListView.as_view(), name='post-json-view'),
-    path('search/<string>/posts/<int:num_posts>/', views.SearchResultJsonListView.as_view(), name='search-json-view')
+    path('search/<str:input>/posts/<int:num_posts>/', views.SearchResultJsonListView.as_view(), name='search-json-view')
 ]
 
 if settings.DEBUG:

@@ -2,7 +2,10 @@
 
 {% block content %}
 <h1>Página de Resultados</h1>
-{{ entrada }} {{ results_size }}
+<form>
+    <input type="hidden" id="search_input" value="{{ input }}">
+    <input type="hidden" id="result_size" value="{{ result_size }}">
+</form>
 <div id="posts-box">
 {% if search_list %}
 {% for post in search_list %}
@@ -39,6 +42,12 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="see-more">
+    <div id="spinner-box" class="not-visible">Cargando...</div>
+    <div id="no-more-box" class="not-visible">No existen más registros</div>
+    <button id="load-more-search">Más...</button>
 </div>
 
 {% endblock %}

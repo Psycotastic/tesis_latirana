@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const spinnerBox = document.getElementById('spinner-box');
     const loadBtn = document.getElementById('load-more');
     const noMorebox = document.getElementById('no-more-box');
+    const loadSeachBtn = document.getElementById('load-more-search');
     const margins = {
         top: 80,
         bottom: 60,
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         width: 522
     };
     let visible = 10;
+    let visibleSearch = 2;
 
     const handleGetData = () => {
         spinnerBox.classList.remove('not-visible')
@@ -45,12 +47,58 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    handleGetData();
-
-    loadBtn.addEventListener('click', ()=>{
-        visible += 10;
+    if(window.location.pathname === "/") {
         handleGetData();
-    })
+        loadBtn.addEventListener('click', ()=>{
+            visible += 10;
+            handleGetData();
+        })
+    }
+
+    
+    if(window.location.pathname === "/search_results/") {
+        loadSeachBtn.addEventListener('click', ()=>{
+            visibleSearch += 6;
+            handleGetDataSearch();
+        })
+    }
+    
+    const handleGetDataSearch = () => {
+        spinnerBox.classList.remove('not-visible')
+        loadSeachBtn.classList.add('not-visible');
+        let input = document.getElementById('search_input').value
+        $.ajax({
+            type: 'GET',
+            url: `/search/${input}/posts/${visibleSearch}/`,
+            success: function(response){
+                const data = response.data;
+                max_size = response.max
+                const json = JSON.parse(data)
+                console.log(json)
+                json.map(post=>{
+                    image_url = "media/" + post.image;
+                    postsBox.innerHTML += "<div class='post' style='background-image: url("+image_url+")'>" +
+                                "<a href='javascript:void(0)' class='photo-modal' data-guild='" + post.guild + "' " +
+                                "data-image='" + post.image +"' data-performance='" + post.performance + "' " +
+                                "data-year='"+ post.year + "' data-costume='" + post.costume + "' " +
+                                "onclick='displayModal(this)'>" +
+                                "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
+                });
+                if(max_size) {
+                    loadSeachBtn.classList.add('not-visible');
+                    noMorebox.classList.remove('not-visible');
+                }else{
+                    loadSeachBtn.classList.remove('not-visible');
+                }
+            },
+            error: function(error){
+                console.log(error);
+            },
+            complete: function(){
+                spinnerBox.classList.add('not-visible')
+            }
+        });
+    }
 
     /*Descargar ficha*/
     $('#download-pdf').click(function() {
