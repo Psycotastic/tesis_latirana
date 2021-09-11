@@ -2,8 +2,9 @@
 
 {% block content %}
 <h1>Página de Resultados</h1>
+{{ entrada }} {{ results_size }}
+<div id="posts-box">
 {% if search_list %}
-
 {% for post in search_list %}
 <div class="post" style="background-image: url('../media/{{ post.image }}')">
     
@@ -21,6 +22,7 @@
 {% else %}
 <h1>No se encontraron los resultados buscados</h1>
 {% endif %}
+</div>
 
 <div id="photoModal" class="modal">
     <div class="modal-content">

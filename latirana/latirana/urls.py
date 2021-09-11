@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#from latirana.fotos.views import SearchResultJsonListView
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
@@ -23,7 +24,8 @@ urlpatterns = [
     path('', include('fotos.urls')),
     path('admin/', admin.site.urls),
     path('', views.MainView.as_view(), name='index'),
-    path('posts/<int:num_posts>/', views.PostJsonListView.as_view(), name='post-json-view')
+    path('posts/<int:num_posts>/', views.PostJsonListView.as_view(), name='post-json-view'),
+    path('search/<string>/posts/<int:num_posts>/', views.SearchResultJsonListView.as_view(), name='search-json-view')
 ]
 
 if settings.DEBUG:

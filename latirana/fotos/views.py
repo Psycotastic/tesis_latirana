@@ -66,6 +66,17 @@ def search(request):
         if form.is_valid():
             entrada = form['buscar'].value()
             param = '%' + entrada + '%'
-            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param])
+            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s ORDER BY id DESC""", [param, param, param, param])[0:10]
+            results_size = len(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param]))
+    return render(request, 'search_results.html', {'search_list': search_list, 'input' : entrada, 'result_size': results_size})
 
-    return render(request, 'search_results.html', {'search_list': search_list})
+class SearchResultJsonListView(View):
+    def get(self, *args, **kwargs):
+        upper = kwargs.get('num_posts')
+        entrada = kwargs.get('terms')
+        lower = upper - 10
+        param = '%' + entrada + '%'
+        results = list(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s ORDER BY id DESC""", [param, param, param, param])[lower:upper])
+        results_size = len(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param]))
+        max_size = True if upper >= results_size else False
+        return JsonResponse({'data': results, 'max':"max_size"},safe=False)
