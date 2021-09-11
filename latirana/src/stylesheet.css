@@ -97,9 +97,11 @@ nav form.search-bar input.search-input[type="text"]:focus {
 }
 
 nav form.search-bar button.search-button {
-    width: 10%;
+    width: 7%;
     border: none;
     background: none;
+    font-size: 18pt;
+    cursor: pointer;
 }
 
 nav a.upload {
@@ -191,6 +193,19 @@ div#posts-box {
     transform: translate(-50%, -50%);
     text-align: center;
     text-transform: capitalize;
+}
+
+/* VER MÁS */
+
+div.see-more {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+}
+
+div.see-more button {
+    width: auto;
 }
 
 /* POP UP */
@@ -317,6 +332,9 @@ div.input_text input#id_costume {
 
 button#postsubmit {
     width: 100px;
+}
+
+button#postsubmit, div.see-more button {
     background: transparent;
     color: var(--yellow);
     border: 2px solid var(--yellow);
@@ -330,12 +348,12 @@ button#postsubmit {
     transition: 0.3s;
 }
 
-button#postsubmit:hover {
+button#postsubmit:hover, div.see-more button:hover {
     border: 2px solid var(--blue);
     color: var(--blue);
 }
 
-button#postsubmit:active {
+button#postsubmit:active, div.see-more button:active {
     background: var(--darkblue);
     color: var(--yellow);
 }
