@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import ImageForm
 from .forms import SearchForm
 from .models import Post
@@ -25,6 +25,12 @@ class PostJsonListView(View):
 def upload(request):
     # return render(request, 'upload.html')
     """Process images uploaded by users"""
+    #print(request.session['latest_img_uploade'])
+    img_url = ''
+    if 'latest_img_uploaded' in request.session:
+        img_url = request.session['latest_img_uploaded']
+        request.session['latest_img_uploaded'] = ''
+
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         print(type(request.FILES))
@@ -47,10 +53,11 @@ def upload(request):
             os.rename(registry.image.path, new_filename)
             # Get the current instance object to display in the template
             img_url = "\\media\\images\\" + new_filename.split("\\")[-1]
-            return render(request, 'upload.html', {'form': form, 'img_url': img_url})
+            request.session['latest_img_uploaded'] = img_url
+            return redirect( '/upload')
     else:
         form = ImageForm()
-    return render(request, 'upload.html', {'form': form})
+    return render(request, 'upload.html', {'form': form, 'img_url' : img_url})
 
 def search(request):
     search_list = []
