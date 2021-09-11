@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
     /*Descargar ficha*/
     $('#download-pdf').click(function() {
         $(".ignorePDF").hide();
-        let aux = $('#ignorePDF').html();
-        print(aux);
+        let source  = $('#photoModal').html();
+        print(source);
         $(".ignorePDF").show();
     });
 });
