@@ -3,13 +3,21 @@ from django.shortcuts import render
 from .forms import ImageForm
 from .forms import SearchForm
 from .models import Post
+from django.views.generic import View, TemplateView
+from django.http.response import JsonResponse
 
+class MainView(TemplateView):
+    template_name= 'home.html'
 
-def index(request):
-    post_list = Post.objects.all()
-    print(type(post_list))
-    sorted_list = post_list.order_by('-id')
-    return render(request, 'home.html', {'post_list': sorted_list})
+class PostJsonListView(View):
+    def get(self, *args, **kwargs):
+        print(kwargs)
+        upper = kwargs.get('num_posts')
+        lower = upper - 10
+        posts = list(Post.objects.values().order_by('-id')[lower:upper])
+        posts_size = len(Post.objects.all())
+        max_size = True if upper >= posts_size else False
+        return JsonResponse({'data':posts, 'max': max_size}, safe=False)
 
 def upload(request):
     # return render(request, 'upload.html')

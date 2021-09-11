@@ -3,7 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const spinnerBox = document.getElementById('spinner-box');
     const loadBtn = document.getElementById('load-more');
     const noMorebox = document.getElementById('no-more-box');
-    let visible = 6;
+    const margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+    };
+    let visible = 10;
 
     const handleGetData = () => {
         spinnerBox.classList.remove('not-visible')
@@ -15,9 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = response.data;
                 max_size = response.max
                 data.map(post=>{
-                    postsBox.innerHTML += "<div class='post' style='background-image: url(media\/" + post.image + ")'>" +
-                                "<a href='javascript:void(0) class='photo-modal' data-guild='" + post.guild + "' " +
-                                "data-image='" + post.image +"data-performance='" + post.performance + "' " +
+                    image_url = "media/" + post.image;
+                    postsBox.innerHTML += "<div class='post' style='background-image: url("+image_url+")'>" +
+                                "<a href='javascript:void(0)' class='photo-modal' data-guild='" + post.guild + "' " +
+                                "data-image='" + post.image +"' data-performance='" + post.performance + "' " +
                                 "data-year='"+ post.year + "' data-costume='" + post.costume + "' " +
                                 "onclick='displayModal(this)'>" +
                                 "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
@@ -41,18 +48,21 @@ document.addEventListener('DOMContentLoaded', function () {
     handleGetData();
 
     loadBtn.addEventListener('click', ()=>{
-        visible += 3;
+        visible += 10;
         handleGetData();
     })
 
     /*Descargar ficha*/
     $('#download-pdf').click(function() {
-        let source = document.getElementById("photoModal");
-        console.log("PASE");
-        let doc = new jsPDF(source);
-        doc.fromHtml();
-        doc.print();
-
+        let aux = $('#ignorePDF').html();
+        html2canvas($('#photoModal')[0], {
+            onrendered: function(canvas) {
+                let img = canvas.canvas.toDataURL('image/png'); 
+                let doc = new jsPDF('p', 'mm');
+                doc.addImage(img, 'PNG', 10, 10);
+                doc.save('sample-file.pdf');
+            }
+        });
     });
 
 });

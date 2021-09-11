@@ -11,7 +11,6 @@ html,body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
 }
 
 @font-face {
@@ -43,36 +42,21 @@ html,body {
 
 /* NAVEGADOR */
 
-.fixed {
-    box-shadow:0 2px 6px rgba(0,0,0,0.2);
-    padding:4px 0;
-    animation:slide-down 0.7s;
-    opacity:0.9;
-}
-
-.fixed .fa-gg {transform: rotate(360deg); }
-@keyframes slide-down {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
-    } 
-    100% {
-        opacity: 0.9;
-        transform: translateY(0);
-    } 
-}
-
 nav {
     width: 100%;
     background: var(--white);
     z-index: 1;
     position: fixed;
+    box-shadow: 0 5px 10px rgba(15, 25, 35, 0.2);
 }
 
-nav div.float-panel {    
+nav div.float-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
     font-size: 20pt;
-    padding: 20px 10%;
-    height: 30px;
+    padding: 20px 10% 25px 10%;
+    height: 50px;
     z-index:300;
     transform: translateZ(0);
     transition:all 0.5s; /* Effect for switching from .fixed to static */
@@ -87,11 +71,38 @@ nav a:hover {
 }
 
 nav a.logo {
-    float: left;
+}
+
+nav form.search-bar {
+    width: 70%;
+    margin: 5px 10px;
+    background: var(--yellow);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+nav form.search-bar input.search-input {
+    width: 89%;
+    padding: 10px;
+    border: none;
+    background: none;
+    height: 20px;
+}
+
+nav form.search-bar input.search-input[type="text"]:focus {
+    outline: none;
+}
+
+nav form.search-bar button.search-button {
+    width: 10%;
+    border: none;
+    background: none;
 }
 
 nav a.upload {
-    float: right;
 }
 
 /* TEXTOS */
@@ -124,91 +135,21 @@ a:link, a:hover {
 
 div.wrapper {
     margin: auto;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 90px;
+    padding-top: 150px;
     padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-/* RESPONSIVO */
-
-  @media (min-width: 0px) and (max-width: 755px) {
-    div.wrapper {
-      width: 504px;
-    }
-    div.upload {
-        width: 200px;
-        height: 300px;
-      }
-  }
-  
-  @media (min-width: 756px) and (max-width: 1007px) {
-    div.wrapper {
-      width: 756px;
-    }
-    div.upload {
-        width: 300px;
-        height: 350px;
-      }
-  }
-  
-  @media (min-width: 1008px) and (max-width: 1259px) {
-    div.wrapper {
-      width: 1008px;
-    }
-    div.upload {
-        width: 400px;
-        height: 400px;
-      }
-  }
-  
-  @media (min-width: 1260px) and (max-width: 1511px) {
-    div.wrapper {
-      width: 1260px;
-    }
-    div.upload {
-        width: 550px;
-        height: 450px;
-      }
-  }
-  
-  @media (min-width: 1512px) and (max-width: 1763px) {
-    div.wrapper {
-      width: 1512px;
-    }
-    div.upload {
-        width: 600px;
-        height: 500px;
-      }
-  }
-  
-  @media (min-width: 1764px) and (max-width: 2015px) {
-    div.wrapper {
-      width: 1764px;
-    }
-    div.upload {
-        width: 600px;
-        height: 500px;
-      }
-
-    div.modal-content {
-        max-width: 1000px;
-      }
-    
-    div.modal-content div.modal-inner div {
-        width: 500px;
-    }
-
-    div.modal-content img#imageModal {
-        max-height: 700px;
-        margin: 1%;
-        height: auto;
-    }
-    
-  }
 
 /* THUMBNAILS */
+
+div#posts-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .post {
     width: 300px;
@@ -301,14 +242,26 @@ div.modal-content p {
 div.wrapper form.f-upload {
     display: flex;
     flex-wrap: nowrap;
+    width: 60%;
+    align-items: center;
 }
 
-
+div.wrapper div.wrap {
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+}
 
 /* DIV.UPLOAD */
 
+div.upload-response {
+    width: 50%;
+}
+
 div.upload {
     margin-right: 2%;
+    width: 600px;
+    height: 500px;
 }
 
 div.upload p.icon {
@@ -339,7 +292,7 @@ div.input_text div p {
 
 div.input_text input {
     float: left;
-    width: 95%
+    width: 95%;
 }
 
 div.input_text div.input p {
@@ -387,6 +340,12 @@ button#postsubmit:active {
     color: var(--yellow);
 }
 
+/* CARGAR MÁS */
+
+.not-visible {
+    display: none;
+}
+
 /* FOOTER */
 
 footer {
@@ -427,3 +386,148 @@ footer div.copyright p {
     font-size: 11pt;
     color: var(--yellow);
 }
+
+/* RESPONSIVO */
+
+@media (min-width: 0px) and (max-width: 755px) {
+    div.wrapper {
+      width: 504px;
+    }
+    div.upload {
+        width: 200px;
+        height: 300px;
+      }
+
+    div.wrapper div.wrap {
+        height: 85vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+  }
+  
+  @media (min-width: 756px) and (max-width: 1007px) {
+    div.wrapper {
+        width: 756px;
+    }
+    div.upload {
+        width: 300px;
+        height: 350px;
+      }
+    
+    div.wrapper div.wrap {
+        height: 80vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+  }
+  
+  @media (min-width: 1008px) and (max-width: 1259px) {
+    div.wrapper {
+      width: 1008px;
+    }
+    div.upload {
+        width: 400px;
+        height: 400px;
+      }
+    
+    div.wrapper div.wrap {
+        height: 65vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+  }
+  
+  @media (min-width: 1260px) and (max-width: 1511px) {
+    div.wrapper {
+      width: 1260px;
+    }
+    div.upload {
+        width: 550px;
+        height: 450px;
+      }
+    
+    form.f-upload div.input_text input {
+        width: 90%
+    }
+
+    form.f-upload {
+        height: 450px;
+    }
+
+    div.input_text {
+        height: 450px;
+    }
+  }
+  
+  @media (min-width: 1512px) and (max-width: 1763px) {
+    div.wrapper {
+      width: 1512px;
+    }
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
+    
+    form.f-upload {
+        height: 500px;
+    }
+
+    div.input_text {
+        height: 500px;
+    }
+  }
+  
+  @media (min-width: 1764px) and (max-width: 4500px) {
+    div.wrapper {
+      width: 1764px;
+    }
+
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
+
+    div.modal-content {
+        max-width: 1000px;
+      }
+    
+    div.modal-content div.modal-inner div {
+        width: 500px;
+    }
+
+    div.modal-content img#imageModal {
+        max-height: 700px;
+        margin: 1%;
+        height: auto;
+    }
+
+    form.f-upload {
+        height: 500px;
+    }
+
+    div.input_text {
+        height: 500px;
+    }
+    
+  }

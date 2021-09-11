@@ -1,36 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data" class="f-upload">
-    {% csrf_token %}
-    <!--{{ form.as_p }}-->
-    <div class="upload">
-        <div class="drop-zone">
-            <input class="drop-zone__input" type="file" name="image" accept="image/*" required="" id="id_image">
-            <div class="drop-zone__prompt">
-                <p class="icon"><i class="fas fa-upload"></i></p>
-                <p class="here">Arrastrar imagen aquí</p>
+<div class="wrap">
+    <form method="post" enctype="multipart/form-data" class="f-upload">
+        {% csrf_token %}
+        <!--{{ form.as_p }}-->
+        <div class="upload">
+            <div class="drop-zone">
+                <input class="drop-zone__input" type="file" name="image" accept="image/*" required="" id="id_image">
+                <div class="drop-zone__prompt">
+                    <p class="icon"><i class="fas fa-upload"></i></p>
+                    <p class="here">Arrastrar imagen aquí</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="input_text">
-        <div>
-            <h1>Campos a rellenar</h1>
-            <p>∗ Campos obligatorios</p>
+        <div class="input_text">
+            <div>
+                <h1>Campos a rellenar</h1>
+                <p>∗ Campos obligatorios</p>
+            </div>
+            {{ form.guild }}
+            <div class="input">{{ form.performance }}<p>∗</p></div>
+            <div class="input">{{ form.year }}<p>∗</p></div>
+            <div class="input">{{ form.costume }}<p>∗</p></div>
+            <button type="submit" id="postsubmit">Subir</button>
         </div>
-        {{ form.guild }}
-        <div class="input">{{ form.performance }}<p>∗</p></div>
-        <div class="input">{{ form.year }}<p>∗</p></div>
-        <div class="input">{{ form.costume }}<p>∗</p></div>
-        <button type="submit" id="postsubmit">Subir</button>
-    </div>
-</form>
+    </form>
+</div>
 
 {% if img_obj %}
-
-<p>Subido exitosamente: {{img_obj.tags}}</p>
-<img src="{{ img_obj.image.url }}">
-
+<div class="upload-response">
+    <p>Subido exitosamente: {{img_obj.tags}}</p>
+    <img src="{{ img_obj.image.url }}">
+</div>
 {% endif %}
 
 
