@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const spinnerBox = document.getElementById('spinner-box');
     const loadBtn = document.getElementById('load-more');
     const noMorebox = document.getElementById('no-more-box');
+    const margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+    };
     let visible = 10;
 
     const handleGetData = () => {
@@ -45,5 +51,18 @@ document.addEventListener('DOMContentLoaded', function () {
         visible += 10;
         handleGetData();
     })
+
+    /*Descargar ficha*/
+    $('#download-pdf').click(function() {
+        let aux = $('#ignorePDF').html();
+        html2canvas($('#photoModal')[0], {
+            onrendered: function(canvas) {
+                let img = canvas.canvas.toDataURL('image/png'); 
+                let doc = new jsPDF('p', 'mm');
+                doc.addImage(img, 'PNG', 10, 10);
+                doc.save('sample-file.pdf');
+            }
+        });
+    });
 
 });
