@@ -28,9 +28,10 @@
     </form>
 </div>
 
-{% if img_obj %}
+{% if img_url %}
 <div class="upload-response">
-    <p>La imagen {{img_obj.tags}} se ha subido exitosamente</p>
+    <p>Subido exitosamente: {{img_obj.tags}}</p>
+    <img src="{{ img_url }}">
 </div>
 {% endif %}
 
