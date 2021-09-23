@@ -24,10 +24,10 @@
                 <img src="{% static 'logo.png'%}">
             </a>
 
-            <form method="post" action="search_results/" class="search-bar">
+            <form method="post" action="/search_results/" class="search-bar">
                 {% csrf_token %}
                 <input class="search-input" type="text" name="buscar">
-                <button type="submit" class="search-button">Buscar</button>
+                <i class="fas fa-search" aria-hidden="true"></i>
             </form>
 
             <a href="/upload" class="upload">
