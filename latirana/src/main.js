@@ -59,4 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
         print(source);
         $(".ignorePDF").show();
     });
+
+    $('#searchForm').submit(function(event) {
+        let str = $("#buscar").val();
+        if (!str.replace(/\s/g, '').length) {
+            console.log('string only contains whitespace (ie. spaces, tabs or line breaks)');
+            event.preventDefault();
+        }
+    });
 });

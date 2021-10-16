@@ -24,9 +24,9 @@
                 <img src="{% static 'logo.png'%}">
             </a>
 
-            <form method="post" action="/search_results/" class="search-bar">
+            <form id="searchForm" method="post" action="/search_results/" class="search-bar">
                 {% csrf_token %}
-                <input class="search-input" type="text" name="buscar">
+                <input id="buscar" class="search-input" type="text" name="buscar" required>
                 <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
             </form>
 
