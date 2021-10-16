@@ -5,6 +5,7 @@ from .forms import SearchForm
 from .models import Post
 from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
+from django.db import connection, transaction
 import datetime
 import os
 
@@ -45,6 +46,11 @@ def upload(request):
             new_img_name = guild_name + "-" + performance_name + "-" + costume_name + "-" + photo_year + "_" + now + "." + extension
             new_img_name = new_img_name.replace(" ","_")
             registry.save()
+            elements = Post.objects.all().last()
+            id = getattr(elements, 'id')
+            cursor = connection.cursor()
+            cursor.execute("UPDATE fotos_post set image = '" + "images/" + new_img_name +  "' where id = " + str(id))
+            transaction.commit()
             new_path = registry.image.path.split("\\")
             new_filename = ""
             for e in new_path[:-1]:
@@ -66,7 +72,7 @@ def search(request):
         if form.is_valid():
             entrada = form['buscar'].value()
             param = '%' + entrada + '%'
-            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s ORDER BY id DESC""", [param, param, param, param])[0:2]
+            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s ORDER BY id DESC""", [param, param, param, param])[0:10]
             results_size = len(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param]))
     return render(request, 'search_results.html', {'search_list': search_list, 'input' : entrada, 'result_size': results_size})
 

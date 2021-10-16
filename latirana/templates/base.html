@@ -27,7 +27,9 @@
             <form method="post" action="/search_results/" class="search-bar">
                 {% csrf_token %}
                 <input class="search-input" type="text" name="buscar">
-                <i class="fas fa-search" aria-hidden="true"></i>
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
             </form>
 
             <a href="/upload" class="upload">

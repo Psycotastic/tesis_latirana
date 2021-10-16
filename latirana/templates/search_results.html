@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Página de Resultados</h1>
+<h1 class="results">Página de Resultados</h1>
 <form>
     <input type="hidden" id="search_input" value="{{ input }}">
     <input type="hidden" id="result_size" value="{{ result_size }}">
@@ -9,21 +9,21 @@
 <div id="posts-box">
 {% if search_list %}
 {% for post in search_list %}
-<div class="post" style="background-image: url('../media/{{ post.image }}')">
+    <div class="post" style="background-image: url('../media/{{ post.image }}')">
     
-    <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
-        data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
-        onclick="displayModal(this);">
-        <div class="post_tag">
-            <div>
-                <p>{{ post.guild }}</p>
+        <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
+            data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
+            onclick="displayModal(this);">
+            <div class="post_tag">
+                <div>
+                    <p>{{ post.guild }}</p>
+                </div>
             </div>
-        </div>
-    </a>
-</div>
+        </a>
+    </div>
 {% endfor %}
 {% else %}
-<h1>No se encontraron los resultados buscados</h1>
+    <h2>No se encontraron los resultados buscados</h2>
 {% endif %}
 </div>
 
@@ -48,7 +48,7 @@
 <div class="see-more">
     <div id="spinner-box" class="not-visible">Cargando...</div>
     <div id="no-more-box" class="not-visible">No existen más registros</div>
-    <button id="load-more-search">Más...</button>
+    <button id="load-more-search">Cargar Más</button>
 </div>
 
 {% endblock %}

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         width: 522
     };
     let visible = 10;
-    let visibleSearch = 2;
+    let visibleSearch = 10;
 
     const handleGetData = () => {
         spinnerBox.classList.remove('not-visible')

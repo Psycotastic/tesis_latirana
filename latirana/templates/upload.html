@@ -30,8 +30,11 @@
 
 {% if img_url %}
 <div class="upload-response">
-    <p>Subido exitosamente: {{img_obj.tags}}</p>
-    <img src="{{ img_url }}">
+    <h2>¡Imagen subida exitosamente!</h2> 
+    <div>
+        <img style="width: 300px;" src="{{ img_url }}">
+        {{ img_obj.tags }}
+    </div>
 </div>
 {% endif %}
 

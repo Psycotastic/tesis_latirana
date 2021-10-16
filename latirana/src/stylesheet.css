@@ -70,8 +70,8 @@ nav a:hover {
     color: var(--yellow);
 }
 
-nav a.logo {
-}
+/*nav a.logo {
+}*/
 
 nav form.search-bar {
     width: 70%;
@@ -85,7 +85,7 @@ nav form.search-bar {
 }
 
 nav form.search-bar input.search-input {
-    width: 89%;
+    width: 100%;
     padding: 10px;
     border: none;
     background: none;
@@ -97,18 +97,30 @@ nav form.search-bar input.search-input[type="text"]:focus {
 }
 
 nav form.search-bar button.search-button {
-    width: 10%;
+    float:right;
     border: none;
     background: none;
+    font-size: 20pt;
+    padding-right: 2%;
+    text-align: right;
+    cursor: pointer;
 }
 
-nav a.upload {
-}
+/*nav a.upload {
+}*/
 
 /* TEXTOS */
 
-h1 {
+h1, h2 {
     font-family: 'Chucara','Times New Roman', Times, serif;
+}
+
+h1.results {
+    text-align: center;
+}
+
+h2 {
+    font-weight: 400;
 }
 
 p {
@@ -210,11 +222,11 @@ div.modal-content div.equis:hover {
 div.modal-content div.modal-inner {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 div.modal-content img#imageModal {
-    max-width: 40%;
+    max-width: 50%;
     margin: 1%;
     height: auto;
 }
@@ -222,6 +234,7 @@ div.modal-content img#imageModal {
 div.modal-content h1,
 div.modal-content p {
     text-transform: capitalize;
+    line-height: 24pt;
 }
 
 div.modal-content label,
@@ -235,6 +248,10 @@ div.modal-content label {
 
 div.modal-content p {
     margin-bottom: 10px;
+}
+
+button#download-pdf {
+    float: right;
 }
 
 /* FORMULARIO */
@@ -255,7 +272,15 @@ div.wrapper div.wrap {
 /* DIV.UPLOAD */
 
 div.upload-response {
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.upload-response div {
+    display: flex;
+    justify-content: center;
 }
 
 div.upload {
@@ -344,6 +369,36 @@ button#postsubmit:active {
 
 .not-visible {
     display: none;
+}
+
+.wrapper .see-more {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 0 0;
+}
+
+.wrapper .see-more div {
+    font-family: 'Chucara';
+}
+
+.wrapper .see-more button {
+    width: 100px;
+    background: transparent;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 8pt;
+    transition: 0.3s;
+}
+
+.wrapper .see-more button:hover {
+    color: var(--blue);
+    border: 2px solid var(--blue);
 }
 
 /* FOOTER */
