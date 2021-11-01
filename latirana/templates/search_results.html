@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Página de Resultados</h1>
+<h1 class="results">Página de Resultados</h1>
+<form>
+    <input type="hidden" id="search_input" value="{{ input }}">
+    <input type="hidden" id="result_size" value="{{ result_size }}">
+</form>
+<div id="posts-box">
 {% if search_list %}
 
 {% for post in search_list %}
@@ -19,8 +24,9 @@
 </div>
 {% endfor %}
 {% else %}
-<h1>No se encontraron los resultados buscados</h1>
+    <h2>No se encontraron los resultados buscados</h2>
 {% endif %}
+</div>
 
 <div id="photoModal" class="modal">
     <div class="modal-content">
@@ -36,7 +42,14 @@
                 <label>Traje según ritmo: </label><p id="costumeModal"></p>
             </div>
         </div>
+        <button id="download-pdf" class="ignorePDF">Descargar</button>
     </div>
+</div>
+
+<div class="see-more">
+    <div id="spinner-box" class="not-visible">Cargando...</div>
+    <div id="no-more-box" class="not-visible">No existen más registros</div>
+    <button id="load-more-search">Cargar Más</button>
 </div>
 
 {% endblock %}

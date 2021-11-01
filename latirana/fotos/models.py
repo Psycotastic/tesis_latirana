@@ -8,6 +8,7 @@ GUILDS = (
     ('sociedad religiosa gitanos del carmen trinidad ponce','SOCIEDAD RELIGIOSA GITANOS DEL CARMEN TRINIDAD PONCE'),
     ('baile religioso auténtica diablada','BAILE RELIGIOSO AUTÉNTICA DIABLADA'),
     ('baile religioso aymara','BAILE RELIGIOSO AYMARA'),
+    ('sociedad religiosa siervos de jesús y maría', 'SOCIEDAD RELIGIOSA SIERVOS DE JESÚS Y MARÍA')
 )
 
 class Post(models.Model):
