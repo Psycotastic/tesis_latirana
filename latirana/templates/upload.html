@@ -19,11 +19,32 @@
                 <h1>Campos a rellenar</h1>
                 <p>∗ Campos obligatorios</p>
             </div>
-            {{ form.guild }}
-            <div class="input">{{ form.performance }}<p>∗</p></div>
-            <div class="input">{{ form.year }}<p>∗</p></div>
-            <div class="input">{{ form.costume }}<p>∗</p></div>
+            <!--
+            {{ form.guild }}    <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
+            <div class="input">{{ form.performance }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
+            <div class="input">{{ form.year }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
+            <div class="input">{{ form.costume }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
+            <button type="submit" id="postsubmit">Subir</button> -->
+            <table id="upload-form">
+                <tr>
+                    <th>{{ form.guild }} </th>
+                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+                </tr>
+                <tr>
+                    <th><div class="input">{{ form.performance }}<p>∗</p></div></th>
+                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+                </tr>
+                <tr>
+                    <th><div class="input">{{ form.year }}<p>∗</p></div></th>
+                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+                </tr>
+                <tr>
+                    <th><div class="input">{{ form.costume }}<p>∗</p></div></th>
+                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+                </tr>
+            </table>
             <button type="submit" id="postsubmit">Subir</button>
+            
         </div>
     </form>
 </div>
