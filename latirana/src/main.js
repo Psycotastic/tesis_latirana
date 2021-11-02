@@ -107,4 +107,21 @@ document.addEventListener('DOMContentLoaded', function () {
         print(source);
         $(".ignorePDF").show();
     });
+
+    $('#searchForm').submit(function() {
+        let searchTerms = $('#buscar').val().trim();
+        if (!searchTerms.replace(/\s/g, '').length) {
+            if($(".alert").is(":hidden")) { 
+                $(".alert").slideDown();
+             }
+            return false;
+        }
+        else {
+            $('#buscar').val(searchTerms);
+        }
+    });
+
+    $(".alert").click(function() {
+        $(".alert").slideUp();
+    });
 });

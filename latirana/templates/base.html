@@ -15,7 +15,7 @@
      <script src="{% static 'jquery-3.6.0.min.js'%}"></script>
      <script src="{% static 'html2canvas.min.js'%}"></script>
      <script src="{% static 'main.js'%}"></script>
-      
+
 </head>
 <body>
     <nav>
@@ -24,17 +24,20 @@
                 <img src="{% static 'logo.png'%}">
             </a>
 
-            <form method="post" action="/search_results/" class="search-bar">
+            <form id="searchForm" method="post" action="/search_results/" class="search-bar">
                 {% csrf_token %}
-                <input class="search-input" type="text" name="buscar">
-                <button type="submit" class="search-button">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </button>
+                <input id="buscar" class="search-input" type="text" name="buscar" required>
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
             </form>
 
             <a href="/upload" class="upload">
                 <i class="fas fa-upload"></i>
             </a>
+        </div>
+        <div class="alert-container">
+            <div class="alert alert-danger" role="alert">
+               La búsqueda no puede contener solo espacios en blanco. 
+            </div>
         </div>
     </nav>
     <div class="wrapper">
@@ -44,11 +47,11 @@
 </body>
 <footer>
     <div class="footer_links">
-            <div><a href="info">Información</a></div>
-            <div><a>La Fiesta de La Tirana</a></div>
-            <div><a>Cofradías</a></div>
-            <div><a>Tags</a></div>
-            <div><a>Correcciones</a></div>
+            <div><a href="/info">Información</a></div>
+            <div><a href="/tirana">La Fiesta de La Tirana</a></div>
+            <div><a href="/guilds">Cofradías</a></div>
+            <div><a href="/tags">Tags</a></div>
+            <div><a href="/corrections">Correcciones</a></div>
     </div>
     <div class="copyright">
         <p>Página con fines educacionales</p>

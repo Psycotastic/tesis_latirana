@@ -205,6 +205,19 @@ div#posts-box {
     text-transform: capitalize;
 }
 
+/* VER MÁS */
+
+div.see-more {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin-top: 50px;
+}
+
+div.see-more button {
+    width: auto;
+}
+
 /* POP UP */
 
 div.modal-content div.equis {
@@ -586,3 +599,55 @@ footer div.copyright p {
     }
     
   }
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: none;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-container {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+  /* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#upload-form {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
