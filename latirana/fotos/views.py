@@ -99,3 +99,18 @@ class SearchResultJsonListView(View):
         aux_list = aux_list + "]"
         print(aux_list)
         return JsonResponse({'data': aux_list, 'max':max_size},safe=False)
+
+def information(request):
+    return render(request, 'informacion.html')
+
+def cofradias(request):
+    return render(request, 'cofradias.html')
+
+def fiesta_Tirana(request):
+    return render(request, 'fiesta_tirana.html')
+
+def correcciones(request):
+    return render(request, 'correcciones.html')
+
+def tags(request):
+    return render(request, 'tags.html')
