@@ -8,9 +8,8 @@
 </form>
 <div id="posts-box">
 {% if search_list %}
-
 {% for post in search_list %}
-<div class="post" style="background-image: url('../media/{{ post.image }}')">
+    <div class="post" style="background-image: url('../media/{{ post.image }}')">
     
     <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
         data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
@@ -20,9 +19,8 @@
             <div>
                 <p>{{ post.guild }}</p>
             </div>
-        </div>
-    </a>
-</div>
+        </a>
+    </div>
 {% endfor %}
 {% else %}
     <h2>No se encontraron los resultados buscados</h2>
