@@ -8,6 +8,8 @@ function displayModal(param) {
     let guild = param.getAttribute("data-guild")
     let image = param.getAttribute("data-image")
     let costume = param.getAttribute("data-costume")
+    let character = param.getAttribute("data-character")
+    let author = param.getAttribute("data-author")
     if(!modal){
         modal = document.getElementById("photoModal");
     }
@@ -16,6 +18,8 @@ function displayModal(param) {
     updateText("yearModal", year);
     updateText("guildModal", guild);
     updateText("costumeModal", costume);
+    updateText("characterModal", character);
+    updateText("authorModal", author);
     modal.style.display = "block";
 }
 

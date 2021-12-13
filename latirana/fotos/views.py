@@ -72,8 +72,9 @@ def search(request):
         if form.is_valid():
             entrada = form['buscar'].value()
             param = '%' + entrada + '%'
-            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s ORDER BY id DESC""", [param, param, param, param])[0:10]
-            results_size = len(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s""", [param, param, param, param]))
+            #TODO: La busqueda falla si se añade el campo 'characrter' por algún motivo
+            search_list = Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s UNION select * from fotos_post where author like %s ORDER BY id DESC""", [param, param, param, param, param])[0:10]
+            results_size = len(Post.objects.raw("""select * from fotos_post where performance like %s UNION select * from fotos_post where guild like %s UNION select * from fotos_post where year like %s UNION select * from fotos_post where costume like %s UNION select * from fotos_post where author like %s""", [param, param, param, param, param]))
     return render(request, 'search_results.html', {'search_list': search_list, 'input' : entrada, 'result_size': results_size})
 
 class SearchResultJsonListView(View):
@@ -93,6 +94,8 @@ class SearchResultJsonListView(View):
             aux_list = aux_list + ',"year":"' + e.year + '"'
             aux_list = aux_list + ',"costume":"' + e.costume + '"'
             aux_list = aux_list + ',"guild":"' + e.guild + '"'
+            aux_list = aux_list + ',"author":"' + e.author + '"'
+            aux_list = aux_list + ',"character":"' + e.character + '"'
             aux_list = aux_list + ',"id":"' + str(e.id) + '"}'
             if e != results[-1]:
                 aux_list = aux_list + ","
