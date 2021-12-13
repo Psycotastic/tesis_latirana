@@ -651,3 +651,11 @@ footer div.copyright p {
     border-collapse:separate;
     border-spacing:0 15px;
 }
+
+/* Media queries print */
+@media print{
+    footer, nav, #posts-box{
+      display: none !important;
+    }
+  
+  }
