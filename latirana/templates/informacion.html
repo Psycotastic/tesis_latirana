@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Información</h1>
+{% load static %}
+<div class="text-box">
+    <img src="{% static 'logo.svg'%}">
+    <div class="text-post">
+        <h1>Proyecto Memorias Tiranas</h1>
+        <h3>Tesis para optar al título profesional de Diseñadora Gráfica</h3>
+        <p>
+            El proyecto "Memorias Tiranas" consiste en el estudio de la Fiesta de La Tirana como una celebración sincrética que crea memorias, 
+            que han sido registradas a través de la fotografía, con el fin de generar una plataforma web que permita a los integrantes de las
+            sociedades de baile que participan de la fiesta, el reunir estos registros fotográficos en un único archivo tipológico. De esta manera,
+            este archivo generará una re-visualización de estas memorias, permitiendo una nueva lectura de los relatos que las fotografías de por sí
+            poseen para los mismos integrantes de los bailes.
+        </p>
+    </div>
+</div>
 
 {% endblock %}

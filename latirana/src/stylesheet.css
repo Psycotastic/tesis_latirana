@@ -111,7 +111,7 @@ nav form.search-bar button.search-button {
 
 /* TEXTOS */
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Chucara','Times New Roman', Times, serif;
 }
 
@@ -152,6 +152,8 @@ div.wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    min-height: 50vh;
   }
 
 
@@ -430,7 +432,7 @@ footer div.footer_links {
     justify-content: space-around;
     flex-wrap: nowrap;
     flex-direction: column;
-    height: 130px;
+    height: 20vh;
     padding: 20px;
 }
 
@@ -650,4 +652,25 @@ footer div.copyright p {
 #upload-form {
     border-collapse:separate;
     border-spacing:0 15px;
+}
+
+
+/*CUERPO DE POSTS*/
+
+.wrapper .text-box {
+    width: 75%;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.wrapper .text-box img { 
+    width: 30%;
+    height: 30%;
+    margin: 15px;
+}
+
+.wrapper .text-box .text-post {
+    width: 60%;
+    margin: 15px;
 }

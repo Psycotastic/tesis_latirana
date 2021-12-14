@@ -26,10 +26,10 @@ urlpatterns = [
     path('', views.MainView.as_view(), name='index'),
     path('posts/<int:num_posts>/', views.PostJsonListView.as_view(), name='post-json-view'),
     path('search/<str:input>/posts/<int:num_posts>/', views.SearchResultJsonListView.as_view(), name='search-json-view'),
-    path('info/', views.information, name='information'),
+    path('proyecto/', views.information, name='informacion'),
     path('guilds/', views.cofradias, name='cofradias'),
     path('corrections/', views.correcciones, name='correcciones'),
-    path('tags/', views.tags, name='tags'),
+    path('info/', views.tags, name='tags'),
     path('tirana/', views.fiesta_Tirana, name='Tirana'),
 ]
 
