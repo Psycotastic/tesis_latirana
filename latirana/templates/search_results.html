@@ -11,13 +11,13 @@
 {% for post in search_list %}
     <div class="post" style="background-image: url('../media/{{ post.image }}')">
     
-        <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
-            data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
-            onclick="displayModal(this);">
-            <div class="post_tag">
-                <div>
-                    <p>{{ post.guild }}</p>
-                </div>
+    <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
+        data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
+        data-author="{{ post.author }}" data-character="{{ post.character }}"
+        onclick="displayModal(this);">
+        <div class="post_tag">
+            <div>
+                <p>{{ post.guild }}</p>
             </div>
         </a>
     </div>
@@ -39,6 +39,8 @@
                 <label>Baile: </label><p id="performanceModal"></p>
                 <label>Año de la fotografía: </label><p id="yearModal"></p>
                 <label>Traje según ritmo: </label><p id="costumeModal"></p>
+                <label>Personaje: </label><p id="characterModal"></p>
+                <label>Autor: </label><p id="authorModal"></p>
             </div>
         </div>
         <button id="download-pdf" class="ignorePDF">Descargar</button>

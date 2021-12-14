@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 "<a href='javascript:void(0)' class='photo-modal' data-guild='" + post.guild + "' " +
                                 "data-image='" + post.image +"' data-performance='" + post.performance + "' " +
                                 "data-year='"+ post.year + "' data-costume='" + post.costume + "' " +
+                                "data-character='"+ post.character + "' data-author='" + post.author + "' " +
                                 "onclick='displayModal(this)'>" +
                                 "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
                 });
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 "<a href='javascript:void(0)' class='photo-modal' data-guild='" + post.guild + "' " +
                                 "data-image='" + post.image +"' data-performance='" + post.performance + "' " +
                                 "data-year='"+ post.year + "' data-costume='" + post.costume + "' " +
+                                "data-character='"+ post.character + "' data-author='" + post.author + "' " +
                                 "onclick='displayModal(this)'>" +
                                 "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
                 });
@@ -103,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
     /*Descargar ficha*/
     $('#download-pdf').click(function() {
         $(".ignorePDF").hide();
-        let source  = $('#photoModal').html();
-        print(source);
+        //let source  = $('#photoModal').html();
+        print();
         $(".ignorePDF").show();
     });
 

@@ -11,11 +11,13 @@ class ImageForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('performance', 'year', 'costume', 'guild', 'image')
+        fields = ('performance', 'year', 'costume', 'guild', 'image', 'author', 'character')
         widgets = {
             'performance': forms.TextInput(attrs={'placeholder': 'Baile'}),
             'year': forms.TextInput(attrs={'placeholder': 'Año en que se sacó la fotografía'}),
             'costume': forms.TextInput(attrs={'placeholder': 'Tipo de vestimenta según ritmo'}),
+            'author': forms.TextInput(attrs={'placeholder': 'Placeholder aquí'}),
+            'character': forms.TextInput(attrs={'placeholder': 'Placeholder aquí'})
         }
     
 class SearchForm(forms.Form):

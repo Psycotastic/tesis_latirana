@@ -674,3 +674,10 @@ footer div.copyright p {
     width: 60%;
     margin: 15px;
 }
+/* Media queries print */
+@media print{
+    footer, nav, #posts-box{
+      display: none !important;
+    }
+  
+  }
