@@ -4,4 +4,33 @@
 
 <h1> Cofradías </h1>
 
+<div id="entry-box">
+    <!--Acá aparecerán los posts-->
+</div>
+
+<div class="wrap">
+    <form method="post">
+        {% csrf_token %}
+    
+        <table id="entry-form">
+            <tr>
+                <th>{{ form.society }}</th>
+                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+            </tr>
+            <tr>
+                <th>{{ form.fundation }}</th>
+                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+            </tr>
+            <tr>
+                <th>{{ form.dance }}</th>
+                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+            </tr>
+            <tr>
+                <th>{{ form.history }}</th>
+            </tr>
+        </table>
+        <button type="submit" id="postsubmit">Subir</button>
+    </form>
+</div>
+
 {% endblock %}

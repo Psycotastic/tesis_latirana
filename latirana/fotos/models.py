@@ -146,3 +146,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.year
+
+class Cofradia(models.Model):
+    society = models.CharField(max_length=255)
+    fundation = models.CharField(max_length=4)
+    dance = models.CharField(max_length=255)
+    history = models.TextField()
+
+    def __str__(self):
+        return self.society
