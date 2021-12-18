@@ -23,14 +23,13 @@
                 <p>∗ Campos obligatorios</p>
             </div>
             <div class="input">
-                <div>
-                    <input list="id_guild" placeholder="Sociedad de Baile" name="guild"/>
-                    <datalist id="id_guild">
-                        {% for item in guild_lists %}
-                        <option>{{item.0}}</option>
-                        {% endfor %}
-                    </datalist>
-                </div>
+                <input list="id_guild" placeholder="Sociedad de Baile" name="guild"/>
+                <datalist id="id_guild">
+                    {% for item in guild_lists %}
+                    <option>{{item.0}}</option>
+                    {% endfor %}
+                </datalist>
+
                 <i class="fas fa-question-circle tooltip"><span class="tooltiptext">La sociedad de baile a la que pertenecen los bailarines en la fotografía.</span></i>
             </div>
             <div class="input">
