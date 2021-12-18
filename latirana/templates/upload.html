@@ -26,8 +26,19 @@
             <div class="input">{{ form.costume }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
             <button type="submit" id="postsubmit">Subir</button> -->
             <table id="upload-form">
-                <tr>
+                <!--<tr>
                     <th>{{ form.guild }} </th>
+                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
+                </tr>-->
+                <tr>
+                    <th>
+                        <input list="id_guild" placeholder="Sociedad de Baile" name="guild"/>
+                        <datalist id="id_guild">
+                            {% for item in guild_lists %}
+                            <option>{{item.0}}</option>
+                            {% endfor %}
+                        </datalist>
+                    </th>
                     <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
                 </tr>
                 <tr>
