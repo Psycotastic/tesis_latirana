@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadBtn = document.getElementById('load-more');
     const noMorebox = document.getElementById('no-more-box');
     const loadSeachBtn = document.getElementById('load-more-search');
+    const entriesBox = document.getElementById('entry-box');
     const margins = {
         top: 80,
         bottom: 60,
@@ -48,12 +49,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const handleGetEntries = () => {
+        $.ajax({
+            type: 'GET',
+            url: '/entries/',
+            success: function(response) {
+                const data = response.data;
+                const json = JSON.parse(data);
+                json.map(entry=>{
+                    entriesBox.innerHTML += "<div class='entry'>" +
+                                            "<h3>" + entry.society + "</h3>" + 
+                                            "<a href='/entry/"+ entry.id +"'>Leer más...</a>" + "</div>";
+                });
+            },
+            error: function(error) {
+
+            },
+            complete: function() {
+
+            }
+        });
+    }
+
     if(window.location.pathname === "/") {
         handleGetData();
         loadBtn.addEventListener('click', ()=>{
             visible += 10;
             handleGetData();
         })
+    }
+
+    if(window.location.pathname === "/guilds/") {
+        handleGetEntries();
     }
 
     
@@ -63,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
             handleGetDataSearch();
         })
     }
+
+    
     
     const handleGetDataSearch = () => {
         spinnerBox.classList.remove('not-visible')
@@ -126,4 +155,5 @@ document.addEventListener('DOMContentLoaded', function () {
     $(".alert").click(function() {
         $(".alert").slideUp();
     });
+
 });

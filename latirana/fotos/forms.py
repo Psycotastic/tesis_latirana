@@ -1,6 +1,7 @@
 from django import forms
+from django.forms import widgets
 from django.forms.formsets import MAX_NUM_FORM_COUNT
-from .models import Post
+from .models import Post, Cofradia
 
 class ImageForm(forms.ModelForm):
     """Form for the image model"""
@@ -26,4 +27,16 @@ class SearchForm(forms.Form):
         self.fields['buscar'].required = True
     
     buscar = forms.CharField(max_length=500)
+
+class GuildForm(forms.ModelForm):
+
+    class Meta:
+        model = Cofradia
+        fields = ('society', 'fundation', 'dance', 'history')
+        widgets = {
+            'society': forms.TextInput(attrs={'placeholder': 'Sociedad religiosa'}),
+            'fundation': forms.TextInput(attrs={'placeholder': 'Año de Fundación'}),
+            'dance' : forms.TextInput(attrs={'placeholder' : 'Tipo de Baile'}),
+            'history' : forms.Textarea(attrs={'placeholder' : 'Breve Historia de la Sociedad Religiosa'})
+        }
         

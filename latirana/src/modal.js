@@ -1,6 +1,4 @@
-
 var modal = document.getElementById("photoModal");
-
 
 function displayModal(param) {
     let performance = param.getAttribute("data-performance");
@@ -21,6 +19,9 @@ function displayModal(param) {
     updateText("characterModal", character);
     updateText("authorModal", author);
     modal.style.display = "block";
+    getEXIF();
+    let metadata = document.getElementById("metadataModal").getAttribute("data-metadata");
+    console.log(metadata);
 }
 
 function updateText(id, newText) {
@@ -37,8 +38,16 @@ window.onclick = function(event) {
     }
 }
 
-
-
 function closeModal() {
     modal.style.display = "none";
+}
+
+function getEXIF() {
+    let img = document.getElementById("imageModal");
+    let test = document.getElementById("metadataModal");
+    EXIF.getData(img, function() {
+        let obj = EXIF.getAllTags(this);
+        //return JSON.stringify(obj, null, "\t");
+        test.setAttribute("data-metadata",JSON.stringify(obj, null, "\t"));
+    });
 }

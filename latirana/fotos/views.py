@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .forms import ImageForm
-from .forms import SearchForm
-from .models import Post
+from .forms import ImageForm, GuildForm, SearchForm
+from .models import Post, Cofradia
 from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
 from django.db import connection, transaction
@@ -34,7 +33,6 @@ def upload(request):
 
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
-        print(type(request.FILES))
         if form.is_valid():
             registry = form.save(commit=False)
             extension = str(registry.image).split('.')[-1]
@@ -100,14 +98,47 @@ class SearchResultJsonListView(View):
             if e != results[-1]:
                 aux_list = aux_list + ","
         aux_list = aux_list + "]"
-        print(aux_list)
         return JsonResponse({'data': aux_list, 'max':max_size},safe=False)
 
 def information(request):
     return render(request, 'informacion.html')
 
 def cofradias(request):
-    return render(request, 'cofradias.html')
+    uploaded_entry = ''
+    if 'latest_entry_uploaded' in request.session:
+        uploaded_entry = request.session['latest_entry_uploaded']
+        request.session['latest_entry_uploaded'] = ''
+    if request.method == 'POST':
+        form = GuildForm(request.POST)
+        if form.is_valid():
+            registry = form.save(commit=False)
+            registry.save()
+            transaction.commit()
+            # Get the current instance object to display in the template
+            uploaded_entry = "Yes"
+            request.session['latest_entry_uploaded'] = uploaded_entry
+            return redirect( '/guilds')
+    else:
+        form = GuildForm()
+    return render(request, 'cofradias.html', {'form': form, 'entry' : uploaded_entry})
+
+class GetGuildEntriesView(View):
+    def get(self, *args, **kwargs):
+        results = Cofradia.objects.raw("""select * from fotos_cofradia ORDER BY id DESC""")
+        aux_list = "["
+        for e in results:
+            aux_list = aux_list + "{"
+            aux_list = aux_list + '"society":"' + e.society + '"'
+            aux_list = aux_list + ',"id":"' + str(e.id) + '"}'
+            if e != results[-1]:
+                aux_list = aux_list + ","
+        aux_list = aux_list + "]"
+        return JsonResponse({'data': aux_list},safe=False)
+
+def cofradia_detalle(request, entry_id):
+    entry = Cofradia.objects.get(pk=entry_id)
+    print(entry)
+    return render(request, 'entry_detail.html', {'entry': entry})
 
 def fiesta_Tirana(request):
     return render(request, 'fiesta_tirana.html')
