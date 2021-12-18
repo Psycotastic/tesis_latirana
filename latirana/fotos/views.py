@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import ImageForm, GuildForm, SearchForm
-from .models import Post, Cofradia
+from .models import Post, Cofradia, GUILDS
 from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
 from django.db import connection, transaction
@@ -40,8 +40,7 @@ def upload(request):
             guild_name = registry.guild
             costume_name = registry.costume
             photo_year = registry.year
-            performance_name = registry.performance
-            new_img_name = guild_name + "-" + performance_name + "-" + costume_name + "-" + photo_year + "_" + now + "." + extension
+            new_img_name = guild_name + "-" + photo_year + "_" + now + "." + extension
             new_img_name = new_img_name.replace(" ","_")
             registry.save()
             elements = Post.objects.all().last()
@@ -61,7 +60,7 @@ def upload(request):
             return redirect( '/upload')
     else:
         form = ImageForm()
-    return render(request, 'upload.html', {'form': form, 'img_url' : img_url})
+    return render(request, 'upload.html', {'form': form, 'img_url' : img_url, 'guild_lists' : GUILDS})
 
 def search(request):
     search_list = []
