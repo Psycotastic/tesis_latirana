@@ -36,6 +36,7 @@ class GuildForm(forms.ModelForm):
         widgets = {
             'society': forms.TextInput(attrs={'placeholder': 'Sociedad religiosa'}),
             'fundation': forms.TextInput(attrs={'placeholder': 'Año de Fundación'}),
+            'asociation': forms.TextInput(attrs={'placeholder' : 'Asociación de Baile'}),
             'dance' : forms.TextInput(attrs={'placeholder' : 'Tipo de Baile'}),
             'history' : forms.Textarea(attrs={'placeholder' : 'Breve Historia de la Sociedad Religiosa'})
         }

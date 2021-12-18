@@ -270,6 +270,7 @@ div.modal-content div.equis:hover {
 }
 
 div.modal-content div.modal-inner {
+    width: 90%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -309,7 +310,6 @@ button#download-pdf {
 div.wrapper form.f-upload {
     display: flex;
     flex-wrap: nowrap;
-    width: 60%;
     align-items: center;
 }
 
@@ -387,7 +387,7 @@ div.input_text input {
     border-radius: 3px;
 }
 
-div.input_text select#id_guild,
+div.input_text input#id_guild,
 div.input_text input#id_performance,
 div.input_text input#id_year,
 div.input_text input#id_costume,
