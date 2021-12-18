@@ -11,6 +11,9 @@
                 <div class="drop-zone__prompt">
                     <p class="icon"><i class="fas fa-upload"></i></p>
                     <p class="here">Arrastrar imagen aquí</p>
+                    <sub>
+                        Las fotografías sólo pueden ser de bailes que hayan participado de la Fiesta de La Tirana, en el contexto de la fiesta.
+                    </sub>
                 </div>
             </div>
         </div>
@@ -19,38 +22,45 @@
                 <h1>Campos a rellenar</h1>
                 <p>∗ Campos obligatorios</p>
             </div>
-            <!--
-            {{ form.guild }}    <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
-            <div class="input">{{ form.performance }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
-            <div class="input">{{ form.year }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
-            <div class="input">{{ form.costume }}<p>∗</p></div> <i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i>
-            <button type="submit" id="postsubmit">Subir</button> -->
-            <table id="upload-form">
-                <tr>
-                    <th>{{ form.guild }} </th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-                <tr>
-                    <th><div class="input">{{ form.performance }}<p>∗</p></div></th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-                <tr>
-                    <th><div class="input">{{ form.year }}<p>∗</p></div></th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-                <tr>
-                    <th><div class="input">{{ form.costume }}<p>∗</p></div></th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-                <tr>
-                    <th><div class="input">{{ form.character }}<p>∗</p></div></th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-                <tr>
-                    <th><div class="input">{{ form.author }}<p>∗</p></div></th>
-                    <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-                </tr>
-            </table>
+            <div class="input">
+                {{ form.guild }}
+                <i class="fas fa-question-circle tooltip"><span class="tooltiptext">La sociedad de baile a la que pertenecen los bailarines en la fotografía.</span></i>
+            </div>
+            <div class="input">
+                {{ form.performance }}
+                <p>∗</p>
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">El baile que se ve en la fotografía.</span>
+                </i>
+            </div>
+                <div class="input">
+                    {{ form.year }}
+                    <p>∗</p>
+                    <i class="fas fa-question-circle tooltip">
+                        <span class="tooltiptext">El año en que fue sacada la fotografía.</span>
+                    </i>
+                </div>
+                <div class="input">
+                    {{ form.costume }}
+                    <p>∗</p>
+                    <i class="fas fa-question-circle tooltip">
+                        <span class="tooltiptext">El traje utilizado según la instancia en la fiesta.</span>
+                    </i>
+                </div>
+                <div class="input">
+                    {{ form.character }}
+                    <p>∗</p>                    
+                    <i class="fas fa-question-circle tooltip">
+                        <span class="tooltiptext">Personajes que se pueden ver en la fotografía, pueden ser más de uno.</span>
+                    </i>
+                </div>
+                <div class="input">
+                    {{ form.author }}
+                    <i class="fas fa-question-circle tooltip">
+                        <span class="tooltiptext">La persona que tomó la fotografía.</span>
+                    </i>
+                </div>
+
             <button type="submit" id="postsubmit">Subir</button>
             
         </div>
