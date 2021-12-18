@@ -16,9 +16,9 @@ class ImageForm(forms.ModelForm):
         widgets = {
             'performance': forms.TextInput(attrs={'placeholder': 'Baile'}),
             'year': forms.TextInput(attrs={'placeholder': 'Año en que se sacó la fotografía'}),
-            'costume': forms.TextInput(attrs={'placeholder': 'Tipo de vestimenta según ritmo'}),
-            'author': forms.TextInput(attrs={'placeholder': 'Placeholder aquí'}),
-            'character': forms.TextInput(attrs={'placeholder': 'Placeholder aquí'})
+            'costume': forms.TextInput(attrs={'placeholder': 'Tipo de vestimenta según etapa de la fiesta'}),
+            'author': forms.TextInput(attrs={'placeholder': 'Autor de la Fotografía'}),
+            'character': forms.TextInput(attrs={'placeholder': 'Personajes que se visualizan en la fotografía'})
         }
     
 class SearchForm(forms.Form):
