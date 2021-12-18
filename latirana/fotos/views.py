@@ -40,8 +40,7 @@ def upload(request):
             guild_name = registry.guild
             costume_name = registry.costume
             photo_year = registry.year
-            performance_name = registry.performance
-            new_img_name = guild_name + "-" + performance_name + "-" + costume_name + "-" + photo_year + "_" + now + "." + extension
+            new_img_name = guild_name + "-" + photo_year + "_" + now + "." + extension
             new_img_name = new_img_name.replace(" ","_")
             registry.save()
             elements = Post.objects.all().last()
