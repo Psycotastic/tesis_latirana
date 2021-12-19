@@ -32,11 +32,12 @@ class GuildForm(forms.ModelForm):
 
     class Meta:
         model = Cofradia
-        fields = ('society', 'fundation', 'dance', 'history')
+        fields = ('society', 'foundation', 'city', 'association', 'dance', 'history' )
         widgets = {
             'society': forms.TextInput(attrs={'placeholder': 'Sociedad religiosa'}),
-            'fundation': forms.TextInput(attrs={'placeholder': 'Año de Fundación'}),
-            'asociation': forms.TextInput(attrs={'placeholder' : 'Asociación de Baile'}),
+            'foundation': forms.TextInput(attrs={'placeholder': 'Año de Fundación'}),
+            'association': forms.TextInput(attrs={'placeholder' : 'Asociación de Baile'}),
+            'city': forms.TextInput(attrs={'placeholder' : 'Ciudad de Fundación'}),
             'dance' : forms.TextInput(attrs={'placeholder' : 'Tipo de Baile'}),
             'history' : forms.Textarea(attrs={'placeholder' : 'Breve Historia de la Sociedad Religiosa'})
         }

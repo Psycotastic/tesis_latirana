@@ -10,26 +10,44 @@
 </div>
 
 <div class="wrap">
-    <form method="post">
+    <form method="post" id="form-society">
         {% csrf_token %}
-    
-        <table id="entry-form">
-            <tr>
-                <th>{{ form.society }}</th>
-                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-            </tr>
-            <tr>
-                <th>{{ form.fundation }}</th>
-                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-            </tr>
-            <tr>
-                <th>{{ form.dance }}</th>
-                <th><i class="fas fa-question-circle tooltip"><span class="tooltiptext">Texto de prueba</span></i></th>
-            </tr>
-            <tr>
-                <th>{{ form.history }}</th>
-            </tr>
-        </table>
+            <div class="input">
+                {{ form.society }}
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">Nombre de la Sociedad de Baile</span>
+                </i>
+            </div>
+            <div class="input">
+                {{ form.foundation }}
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">El año en que se fundó la sociedad.</span>
+                </i>
+            </div>
+            <div class="input">
+                {{ form.city }}
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">Ciudad de fundación.</span>
+                </i>
+            </div>
+            <div class="input">
+                {{ form.association }}                  
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">Asociación a la que pertenece la sociedad.</span>
+                </i>
+            </div>
+            <div class="input">
+                {{ form.dance }}
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">Baile que realiza la sociedad.</span>
+                </i>
+            </div>
+            <div class="input">
+                {{ form.history }}
+                <i class="fas fa-question-circle tooltip">
+                    <span class="tooltiptext">Breve historia de la Sociedad de Baile.</span>
+                </i>
+            </div>
         <button type="submit" id="postsubmit">Subir</button>
     </form>
 </div>
