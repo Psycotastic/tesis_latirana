@@ -149,6 +149,11 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     character = models.CharField(max_length=255, default="")
     author = models.CharField(max_length=255, default="")
+    model = models.CharField(max_length=255, default="")
+    apertureValue = models.CharField(max_length=255, default="")
+    exposureTime = models.CharField(max_length=255, default="")
+    focalLength = models.CharField(max_length=255, default="")
+    iso = models.CharField(max_length=255, default="")
 
     def __str__(self):
         return self.year

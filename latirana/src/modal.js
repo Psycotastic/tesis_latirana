@@ -9,6 +9,10 @@ function displayModal(param) {
     let costume = param.getAttribute("data-costume")
     let character = param.getAttribute("data-character")
     let author = param.getAttribute("data-author")
+    let model = param.getAttribute("data-model")
+    let apertureValue = param.getAttribute("data-apertureValue")
+    let exposureTime = param.getAttribute("data-exposureTime")
+    let focalLength = param.getAttribute("data-focalLength")
     if(!modal){
         modal = document.getElementById("photoModal");
     }
@@ -19,19 +23,11 @@ function displayModal(param) {
     updateText("costumeModal", costume);
     updateText("characterModal", character);
     updateText("authorModal", author);
+    updateText("model", model);
+    updateText("apertureValue", apertureValue);
+    updateText("exposureTime", exposureTime);
+    updateText("focalLength", focalLength);
     modal.style.display = "block";
-    //getEXIF();
-    //let metadata = document.getElementById("metadataJson").value;
-    //console.log(metadata);
-    /*if(metadata != "") {
-        const jsonObj = JSON.parse(metadata);
-        console.log(jsonObj);
-        let apertureValue = jsonObj.ApertureValue;
-        let focalLength = jsonObj.FocalLength;
-        let exposureTime = jsonObj.ExposureTime;
-        let iso = jsonObj.ISOSpeedRatings;
-        let flash = jsonObj.Flash;
-    }*/
 }
 
 function updateText(id, newText) {
@@ -51,23 +47,7 @@ window.onclick = function(event) {
 function closeModal() {
     document.getElementById("imageModal").src="";
     modal.style.display = "none";
-    document.getElementById("metadataJson").value = "";
 }
 
-function getEXIF(e) {
-    try {
-        console.log(e);
-        console.log("AAAAAA");
-        let test = new EXIF();
-        test.getData(e, function() {
-            obj = EXIF.getAllTags(e);
-            let json = JSON.stringify(obj, null, "\t");
-            //document.getElementById("metadataJson").value = json;
-            console.log(json);
-        });
-    }catch(err) {
-        console.log(err);
-        //document.getElementById("metadataJson").value = "";
-    }
-}
+
 

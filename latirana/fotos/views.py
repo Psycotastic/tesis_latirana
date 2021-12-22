@@ -5,6 +5,7 @@ from .models import Post, Cofradia, GUILDS
 from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
 from django.db import connection, transaction
+from PIL import Image, ExifTags
 import datetime
 import os
 
@@ -50,6 +51,17 @@ def upload(request):
                 new_filename = new_filename + e + "\\"
             new_filename = new_filename + new_img_name
             os.rename(registry.image.path, new_filename)
+            #Read Exif Data
+            image_exif = Image.open(new_filename)._getexif()
+            exif = exif = { ExifTags.TAGS[k]: v for k, v in image_exif.items() if k in ExifTags.TAGS and type(v) is not bytes }
+            cursor.execute("UPDATE fotos_post set model = '" + exif['Model'] +  "' where id = " + str(id))
+            post_obj = Post.objects.get(id = id)
+            post_obj.apertureValue = exif['ApertureValue']
+            post_obj.exposureTime = exif['ExposureTime']
+            post_obj.focalLength = exif['FocalLength']
+            post_obj.iso = exif['ISOSpeedRatings']
+            post_obj.save()
+
             # Get the current instance object to display in the template
             img_url = "\\media\\images\\" + new_filename.split("\\")[-1]
             request.session['latest_img_uploaded'] = img_url
@@ -89,6 +101,10 @@ class SearchResultJsonListView(View):
             aux_list = aux_list + ',"guild":"' + e.guild + '"'
             aux_list = aux_list + ',"author":"' + e.author + '"'
             aux_list = aux_list + ',"character":"' + e.character + '"'
+            aux_list = aux_list + ',"model":"' + e.model + '"'
+            aux_list = aux_list + ',"apertureValue":"' + e.apertureValue + '"'
+            aux_list = aux_list + ',"exposureTime":"' + e.exposureTime + '"'
+            aux_list = aux_list + ',"focalLength":"' + e.focalLength + '"'
             aux_list = aux_list + ',"id":"' + str(e.id) + '"}'
             if e != results[-1]:
                 aux_list = aux_list + ","
