@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const noMorebox = document.getElementById('no-more-box');
     const loadSeachBtn = document.getElementById('load-more-search');
     const entriesBox = document.getElementById('entry-box');
+    //const uploadForm = document.getElementById('uploadForm');
+
     const margins = {
         top: 80,
         bottom: 60,
@@ -155,5 +157,5 @@ document.addEventListener('DOMContentLoaded', function () {
     $(".alert").click(function() {
         $(".alert").slideUp();
     });
-
+    
 });

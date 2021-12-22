@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="wrap">
-    <form method="post" enctype="multipart/form-data" class="f-upload">
+    <form id="uploadForm" method="post" enctype="multipart/form-data" class="f-upload">
         {% csrf_token %}
         <!--{{ form.as_p }}-->
         <div class="upload">

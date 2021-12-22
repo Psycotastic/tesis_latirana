@@ -1,4 +1,5 @@
 var modal = document.getElementById("photoModal");
+var obj;
 
 function displayModal(param) {
     let performance = param.getAttribute("data-performance");
@@ -19,9 +20,18 @@ function displayModal(param) {
     updateText("characterModal", character);
     updateText("authorModal", author);
     modal.style.display = "block";
-    getEXIF();
-    let metadata = document.getElementById("metadataModal").getAttribute("data-metadata");
-    console.log(metadata);
+    //getEXIF();
+    //let metadata = document.getElementById("metadataJson").value;
+    //console.log(metadata);
+    /*if(metadata != "") {
+        const jsonObj = JSON.parse(metadata);
+        console.log(jsonObj);
+        let apertureValue = jsonObj.ApertureValue;
+        let focalLength = jsonObj.FocalLength;
+        let exposureTime = jsonObj.ExposureTime;
+        let iso = jsonObj.ISOSpeedRatings;
+        let flash = jsonObj.Flash;
+    }*/
 }
 
 function updateText(id, newText) {
@@ -39,15 +49,25 @@ window.onclick = function(event) {
 }
 
 function closeModal() {
+    document.getElementById("imageModal").src="";
     modal.style.display = "none";
+    document.getElementById("metadataJson").value = "";
 }
 
-function getEXIF() {
-    let img = document.getElementById("imageModal");
-    let test = document.getElementById("metadataModal");
-    EXIF.getData(img, function() {
-        let obj = EXIF.getAllTags(this);
-        //return JSON.stringify(obj, null, "\t");
-        test.setAttribute("data-metadata",JSON.stringify(obj, null, "\t"));
-    });
+function getEXIF(e) {
+    try {
+        console.log(e);
+        console.log("AAAAAA");
+        let test = new EXIF();
+        test.getData(e, function() {
+            obj = EXIF.getAllTags(e);
+            let json = JSON.stringify(obj, null, "\t");
+            //document.getElementById("metadataJson").value = json;
+            console.log(json);
+        });
+    }catch(err) {
+        console.log(err);
+        //document.getElementById("metadataJson").value = "";
+    }
 }
+

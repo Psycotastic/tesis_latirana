@@ -37,11 +37,7 @@ def upload(request):
             registry = form.save(commit=False)
             extension = str(registry.image).split('.')[-1]
             now = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
-            guild_name = registry.guild
-            costume_name = registry.costume
-            photo_year = registry.year
-            new_img_name = guild_name + "-" + photo_year + "_" + now + "." + extension
-            new_img_name = new_img_name.replace(" ","_")
+            new_img_name =  now + "." + extension
             registry.save()
             elements = Post.objects.all().last()
             id = getattr(elements, 'id')
