@@ -663,8 +663,8 @@ footer div.copyright p {
 
     div.modal-content img#imageModal {
         max-height: 700px;
-        margin: 1%;
-        height: auto;
+        margin: 2%;
+        height: 100%;
     }
 
     form.f-upload {
