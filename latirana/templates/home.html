@@ -9,8 +9,9 @@
         <div id="ignorePDF" class="equis ignorePDF">
             <span class="close" onclick="closeModal()">&times;</span>
         </div>
+        <input type="hidden" id="metadataJson" value=""/>
         <div class="modal-inner">
-            <img id="imageModal" src=""/>
+            <img id="imageModal" src="" onload="getEXIF(this);"/>
             <div>
                 <h1 id="guildModal"></h1>
                 <label>Baile: </label><p id="performanceModal"></p>
@@ -20,6 +21,10 @@
                 <label>Autor: </label><p id="authorModal"></p>
                 <div id="metadataModal" data-metadata="">
                     <label>Metadata</label>
+                    <label>Autor: </label><p id="model"></p>
+                    <label>Autor: </label><p id="apertureValue"></p>
+                    <label>Autor: </label><p id="exposureTime"></p>
+                    <label>Autor: </label><p id="focalLength"></p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 var modal = document.getElementById("photoModal");
+var obj;
 
 function displayModal(param) {
     let performance = param.getAttribute("data-performance");
@@ -8,6 +9,10 @@ function displayModal(param) {
     let costume = param.getAttribute("data-costume")
     let character = param.getAttribute("data-character")
     let author = param.getAttribute("data-author")
+    let model = param.getAttribute("data-model")
+    let apertureValue = param.getAttribute("data-apertureValue")
+    let exposureTime = param.getAttribute("data-exposureTime")
+    let focalLength = param.getAttribute("data-focalLength")
     if(!modal){
         modal = document.getElementById("photoModal");
     }
@@ -18,10 +23,11 @@ function displayModal(param) {
     updateText("costumeModal", costume);
     updateText("characterModal", character);
     updateText("authorModal", author);
+    updateText("model", model);
+    updateText("apertureValue", apertureValue);
+    updateText("exposureTime", exposureTime);
+    updateText("focalLength", focalLength);
     modal.style.display = "block";
-    getEXIF();
-    let metadata = document.getElementById("metadataModal").getAttribute("data-metadata");
-    console.log(metadata);
 }
 
 function updateText(id, newText) {
@@ -39,15 +45,9 @@ window.onclick = function(event) {
 }
 
 function closeModal() {
+    document.getElementById("imageModal").src="";
     modal.style.display = "none";
 }
 
-function getEXIF() {
-    let img = document.getElementById("imageModal");
-    let test = document.getElementById("metadataModal");
-    EXIF.getData(img, function() {
-        let obj = EXIF.getAllTags(this);
-        //return JSON.stringify(obj, null, "\t");
-        test.setAttribute("data-metadata",JSON.stringify(obj, null, "\t"));
-    });
-}
+
+
