@@ -23,7 +23,7 @@
                 <p>∗ Campos obligatorios</p>
             </div>
             <div class="input">
-                <input list="id_guild" placeholder="Sociedad de Baile" name="guild"/>
+                <input id="guild" list="id_guild" placeholder="Sociedad de Baile" name="guild"/>
                 <datalist id="id_guild">
                     {% for item in guild_lists %}
                     <option>{{item.0}}</option>
