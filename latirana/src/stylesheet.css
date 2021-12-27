@@ -784,11 +784,3 @@ footer div.copyright p {
 .wrapper .text-box .text-post p {
     padding: 10px 0;
 }
-
-/* Media queries print */
-@media print{
-    footer, nav, #posts-box{
-      display: none !important;
-    }
-  
-  }

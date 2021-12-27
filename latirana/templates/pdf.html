@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Ficha de Baile</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Prueba</p>
+            </div>
+            <img id="test" src='http://memoriastiranas.cl/media/{{image}}'/>
+            <div class='details'>
+                performance: {{ performance }} <br>
+                year: {{ year }} <br>
+                costume: {{ costume }} <br>
+                guild: {{ guild }} <br>
+                id: {{ id }} <br>
+                character: {{ character }} <br>
+                author: {{ author }} <br>
+                model: {{ model }} <br>
+                apertureValue: {{ apertureValue }} <br>
+                exposureTime: {{ exposureTime }} <br>
+                focalLength: {{ focalLength }} <br>
+                iso: {{ iso }}
+                <hr class='hrItem' />
+            </div>
+        </div>
+    </body>
+</html>
