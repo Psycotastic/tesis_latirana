@@ -292,7 +292,8 @@ div.modal-content p {
 
 div.modal-content label,
 div.modal-content p {
-    font-size: 12pt;
+    font-size: 10pt;
+    line-height: 10pt;
 }
 
 div.modal-content label {
@@ -790,5 +791,18 @@ footer div.copyright p {
     footer, nav, #posts-box{
       display: none !important;
     }
-  
+
+    div.modal-content {
+        transform: scale(1);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+   div.modal-content img#imageModal {
+       max-width: 600px;
+        margin: 2%;
+        height: 450px!important;
+    }
+
   }
