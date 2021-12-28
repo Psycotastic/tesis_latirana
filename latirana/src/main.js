@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 "data-character='"+ post.character + "' data-author='" + post.author + "' " +
                                 "data-model='"+ post.model + "' data-apertureValue='" + post.apertureValue + "' " +
                                 "data-exposureTime='"+ post.exposureTime + "' data-focalLength='" + post.focalLength + "' " +
+                                "data-id='" + post.id + "' " + 
                                 "onclick='displayModal(this)'>" +
                                 "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
                 });
@@ -118,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 "data-character='"+ post.character + "' data-author='" + post.author + "' " +
                                 "data-model='"+ post.model + "' data-apertureValue='" + post.apertureValue + "' " +
                                 "data-exposureTime='"+ post.exposureTime + "' data-focalLength='" + post.focalLength + "' " +
+                                "data-id='" + post.id + "' " + 
                                 "onclick='displayModal(this)'>" +
                                 "<div class='post_tag'><div><p>" + post.guild + "</p></div></div></a></div>"
                 });

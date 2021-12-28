@@ -9,9 +9,9 @@
         <div id="ignorePDF" class="equis ignorePDF">
             <span class="close" onclick="closeModal()">&times;</span>
         </div>
-        <input type="hidden" id="metadataJson" value=""/>
         <div class="modal-inner">
-            <img id="imageModal" src="" onload="getEXIF(this);"/>
+            <input type="hidden" id="postId" value="">
+            <img id="imageModal" src=""/>
             <div>
                 <h1 id="guildModal"></h1>
                 <label>Baile: </label><p id="performanceModal"></p>
@@ -29,7 +29,8 @@
                 </div>
             </div>
         </div>
-        <button id="download-pdf" class="ignorePDF">Descargar</button>
+        <!--<button id="download-pdf" class="ignorePDF">Descargar</button>-->
+        <button onclick="downloadPdf()">Descargar</button>
     </div>
 </div>
 

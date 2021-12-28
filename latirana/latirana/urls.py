@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from fotos import views
 
+
 urlpatterns = [
     path('', include('fotos.urls')),
     path('admin/', admin.site.urls),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('corrections/', views.correcciones, name='correcciones'),
     path('info/', views.tags, name='tags'),
     path('tirana/', views.fiesta_Tirana, name='Tirana'),
+    path('pdf/<int:id_post>/', views.GeneratePDF.as_view()),
 ]
 
 if settings.DEBUG:

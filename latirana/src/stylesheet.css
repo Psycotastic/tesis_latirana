@@ -684,7 +684,7 @@ footer div.copyright p {
 
     div.modal-content img#imageModal {
         max-height: 700px;
-        margin: 1%;
+        margin: 2%;
         height: 100%;
     }
 
@@ -785,24 +785,3 @@ footer div.copyright p {
 .wrapper .text-box .text-post p {
     padding: 10px 0;
 }
-
-/* Media queries print */
-@media print{
-    footer, nav, #posts-box{
-      display: none !important;
-    }
-
-    div.modal-content {
-        transform: scale(1);
-        position: absolute;
-        left: 0px;
-        top: 0px;
-    }
-
-   div.modal-content img#imageModal {
-       max-width: 600px;
-        margin: 2%;
-        height: 450px!important;
-    }
-
-  }

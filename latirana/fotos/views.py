@@ -6,12 +6,47 @@ from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
 from django.db import connection, transaction
 from PIL import Image, ExifTags
+from .utils import render_to_pdf
+from django.template.loader import get_template
 import datetime
 import os
 
 
 class MainView(TemplateView):
     template_name= 'home.html'
+
+class GeneratePDF(View):
+    def get(self, request, *args, **kwargs):
+        id_post = kwargs.get('id_post')
+        post_info = Post.objects.get(id = id_post)
+        template = get_template('pdf.html')
+        context = {
+            "image": post_info.image,
+            "performance": post_info.performance,
+            "year": post_info.year,
+            "costume": post_info.costume,
+            "guild": post_info.guild,
+            "id": post_info.id,
+            "character": post_info.character,
+            "author": post_info.author,
+            "model": post_info.model,
+            "apertureValue": post_info.apertureValue,
+            "exposureTime": post_info.exposureTime,
+            "focalLength": post_info.focalLength,
+            "iso": post_info.iso
+        }
+        html = template.render(context)
+        pdf = render_to_pdf('pdf.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "ficha_%s.pdf" %(post_info.performance)
+            content = "inline; filename='%s'" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" %(filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
 
 class PostJsonListView(View):
     def get(self, *args, **kwargs):
@@ -148,7 +183,6 @@ class GetGuildEntriesView(View):
 
 def cofradia_detalle(request, entry_id):
     entry = Cofradia.objects.get(pk=entry_id)
-    print(entry)
     return render(request, 'entry_detail.html', {'entry': entry})
 
 def fiesta_Tirana(request):
