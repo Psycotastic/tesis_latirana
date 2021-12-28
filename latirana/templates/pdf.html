@@ -3,6 +3,32 @@
     <head>
         <title>Ficha de Baile</title>
         <style type="text/css">
+            @font-face {
+                font-family: 'Chucara';
+                src: url('../src/fonts/Chucara-Regular.eot'); /* IE9 Compat Modes */
+                src: url('../src/fonts/Chucara-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                    url('../src/fonts/Chucara-Regular.woff') format('woff'), /* Modern Browsers */
+                    url('../src/fonts/Chucara-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+                    url('../src/fonts/Chucara-Regular.svg#6dc739d53dfa38f1fbc56f353d69d076') format('svg'); /* Legacy iOS */
+         
+                font-style:   normal;
+                font-weight:  400;
+            }
+  
+            @font-face {
+                font-family: 'Chucara';
+                src: url('../src/fonts/Chucara-Italic.eot'); /* IE9 Compat Modes */
+                src: url('../src/fonts/Chucara-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                    url('../src/fonts/Chucara-Italic.woff') format('woff'), /* Modern Browsers */
+                    url('../src/fonts/Chucara-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+                    url('../src/fonts/Chucara-Italic.svg#4a79ccc6c71b93867b7a10ba1c16dd7c') format('svg'); /* Legacy iOS */
+         
+                font-style: italic;
+                font-weight:  400;
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,300;1,700;1,900&display=swap');
+
             body {
                 font-weight: 200;
                 font-size: 14px;
@@ -10,8 +36,7 @@
             .header {
                 font-size: 20px;
                 font-weight: 100;
-                text-align: center;
-                color: #007cae;
+                text-align: left;
             }
             .title {
                 font-size: 22px;
@@ -19,43 +44,73 @@
                /* text-align: right;*/
                padding: 10px 20px 0px 20px;  
             }
-            .title span {
-                color: #007cae;
-            }
+
             .details {
                 padding: 10px 20px 0px 20px;
                 text-align: left !important;
                 /*margin-left: 40%;*/
             }
-            .hrItem {
-                border: none;
-                height: 1px;
-                /* Set the hr color */
-                color: #333; /* old IE */
-                background-color: #fff; /* Modern Browsers */
+
+            h1 {
+                font-family: 'Chucara', 'Times New Roman', Times, serif;
+                color: rgb(15, 25, 35);
+                font-size: 20pt;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            table tbody tr th {
+                text-align: left !important;
+            }
+
+            div.details label {
+                font-weight: 700;
+            }
+
+            div.details p {
+                font-weight: 400 !important;
+            }
+
+            div.details label,
+            div.details p {
+                font-family: 'Roboto', Arial, Helvetica, sans-serif;
+                font-size: 10pt;
+                padding: 0 0 0 20px;
+                margin: 0;
+                color: rgb(15, 25, 35);
             }
         </style>
     </head>
     <body>
         <div class='wrapper'>
             <div class='header'>
-                <p class='title'>Prueba</p>
+                <h1 class='title'>{{ guild }}</h1>
             </div>
             <img id="test" src='http://memoriastiranas.cl/media/{{image}}'/>
             <div class='details'>
-                performance: {{ performance }} <br>
-                year: {{ year }} <br>
-                costume: {{ costume }} <br>
-                guild: {{ guild }} <br>
-                id: {{ id }} <br>
-                character: {{ character }} <br>
-                author: {{ author }} <br>
-                model: {{ model }} <br>
-                apertureValue: {{ apertureValue }} <br>
-                exposureTime: {{ exposureTime }} <br>
-                focalLength: {{ focalLength }} <br>
-                iso: {{ iso }}
-                <hr class='hrItem' />
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <label>Baile: </label> <p>{{ performance }}</p> 
+                                <label>Año:</label> <p>{{ year }}</p>
+                                <label>Traje:</label> <p>{{ costume }}</p>
+                                <label>Personaje/s:</label> <p>{{ character }}</p>
+                                <label>Autor:</label> <p>{{ author }}</p>
+                            </th>
+                            <th>
+                                <label>Modelo de Cámara:</label> <p>{{ model }}</p>
+                                <label>Apertura del Lente:</label> <p>{{ apertureValue }}</p>
+                                <label>Tiempo de Exposición:</label> <p>{{ exposureTime }}</p>
+                                <label>Distancia Focal:</label> <p>{{ focalLength }}</p>
+                                <label>ISO:</label> <p>{{ iso }}</p>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
             </div>
         </div>
     </body>
