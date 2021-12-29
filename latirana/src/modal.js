@@ -13,6 +13,7 @@ function displayModal(param) {
     let apertureValue = param.getAttribute("data-apertureValue");
     let exposureTime = param.getAttribute("data-exposureTime");
     let focalLength = param.getAttribute("data-focalLength");
+    let iso = param.getAttribute("data-iso");
     let id = param.getAttribute("data-id");
     if(!modal){
         modal = document.getElementById("photoModal");
@@ -28,6 +29,7 @@ function displayModal(param) {
     updateText("apertureValue", apertureValue);
     updateText("exposureTime", exposureTime);
     updateText("focalLength", focalLength);
+    updateText("iso", iso);
     document.getElementById("postId").value = id;
     modal.style.display = "block";
 }

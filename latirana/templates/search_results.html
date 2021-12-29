@@ -7,27 +7,27 @@
     <input type="hidden" id="result_size" value="{{ result_size }}">
 </form>
 <div id="posts-box">
-{% if search_list %}
-{% for post in search_list %}
-    <div class="post" style="background-image: url('../media/{{ post.image }}')">
-        <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
-            data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
-            data-author="{{ post.author }}" data-character="{{ post.character }}"
-            data-model="{{ post.model }}" data-apertureValue="{{ post.apertureValue }}"
-            data-exposureTime="{{ post.exposureTime }}" data-focalLength="{{post.focalLength}}" 
-            onclick="displayModal(this);">
-            <div class="post_tag">
-                <div>
-                    <p>{{ post.guild }}</p>
-                </div>
+    {% if search_list %}
+        {% for post in search_list %}
+            <div class="post" style="background-image: url('../media/{{ post.image }}')">
+                <a href="javascript:void(0)" class="photo-modal" data-guild="{{ post.guild }}" data-image="{{ post.image }}"
+                    data-performance="{{ post.performance }}" data-year="{{ post.year }}" data-costume="{{ post.costume }}"
+                    data-author="{{ post.author }}" data-character="{{ post.character }}"
+                    data-model="{{ post.model }}" data-apertureValue="{{ post.apertureValue }}"
+                    data-exposureTime="{{ post.exposureTime }}" data-focalLength="{{post.focalLength}}"  data-iso="{{post.iso}}" 
+                    data-id="{{post.id}}" 
+                    onclick="displayModal(this);">
+                    <div class="post_tag">
+                        <div>
+                            <p>{{ post.guild }}</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-        </a>
-    </div>
-{% endfor %}
-{% else %}
-    <h2>No se encontraron los resultados buscados</h2>
-{% endif %}
+        {% endfor %}
+    {% else %}
+        <h2>No se encontraron los resultados buscados</h2>
+    {% endif %}
 </div>
 
 <div id="photoModal" class="modal">
@@ -46,15 +46,16 @@
                 <label>Personaje: </label><p id="characterModal"></p>
                 <label>Autor: </label><p id="authorModal"></p>
                 <div id="metadataModal" data-metadata="">
-                    <label>Metadata</label>
-                    <label>Model: </label><p id="model"></p>
-                    <label>Aperture Value: </label><p id="apertureValue"></p>
-                    <label>Exposure Time: </label><p id="exposureTime"></p>
-                    <label>Focal Length: </label><p id="focalLength"></p>
+                    <label>EXIF Meta</label></br>
+                    <label>Modelo de Cámara: </label><p id="model"></p>
+                    <label>Apertura de Lente: </label><p id="apertureValue"></p>
+                    <label>Distancia Focal: </label><p id="focalLength"></p>
+                    <label>Tiempo de Exposición: </label><p id="exposureTime"></p>
+                    <label>ISO: </label><p id="iso"></p>
                 </div>
             </div>
         </div>
-        <button id="download-pdf" class="ignorePDF">Descargar</button>
+        <button onclick="downloadPdf()">Descargar</button>
     </div>
 </div>
 
