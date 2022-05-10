@@ -140,6 +140,7 @@ class SearchResultJsonListView(View):
             aux_list = aux_list + ',"apertureValue":"' + e.apertureValue + '"'
             aux_list = aux_list + ',"exposureTime":"' + e.exposureTime + '"'
             aux_list = aux_list + ',"focalLength":"' + e.focalLength + '"'
+            aux_list = aux_list + ',"iso":"' + e.iso + '"'
             aux_list = aux_list + ',"id":"' + str(e.id) + '"}'
             if e != results[-1]:
                 aux_list = aux_list + ","
