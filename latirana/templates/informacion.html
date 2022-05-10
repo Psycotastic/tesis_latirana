@@ -3,23 +3,73 @@
 {% block content %}
 {% load static %}
 <div class="text-box">
-    <img src="{% static 'logo_azul.svg'%}">
-    <div class="text-post">
+    <img class="img b3" src="{% static 'logo_azul.svg'%}">
+    <div class="text-post b2">
         <h1>Acerca del Proyecto "Memorias Tiranas"</h1>
         <p>
-            "Memorias Tiranas" es un proyecto de Colomba Encina Rubio, desarrollado con la colaboración Marcelo Cárdenas, y guiado por el profesor 
+            "Memorias Tiranas" es un proyecto de tesis de Colomba Encina Rubio, desarrollado con la colaboración Marcelo Cárdenas, y guiado por el profesor 
             Daniel Reyes León.
         </p>
         <p>
-            "Memorias Tiranas" es un proyecto dirigido a los integrantes de las sociedades de bailes que participan de la Fiesta de La Tirana, a
-            sus familiares y académicos que tengan interés respecto al registro visual histórico de esta celebración, con el fin de generar un
-            archivo categorizado que permita visualizar los trajes de los bailarines a través del tiempo. Pero también el generar un relato a través
-            de la visualización de estos bailes, que sea revisitable y vaya fluctuando con la acumulación de estos registros fotográficos.
+            Este proyecto está dirigido a los integrantes de las sociedades de bailes que participan de la Fiesta de La Tirana, los socios de las 
+            respectivas sociedades, sus familiares y académicos que tengan interés respecto al registro visual histórico de esta celebración, con el 
+            fin de generar un archivo categorizado que permita visualizar los trajes de los bailarines a través del tiempo. Pero también el generar 
+            un relato a través de la visualización de estos bailes, que sea revisitable y vaya fluctuando con la acumulación de estos registros fotográficos.
         </p>
         <p>
-
-        </p>
+            Al tener también como fin el ser un aporte en conocimientos de archivo y diseño gráfico, se presenta la siguiente bibliografía que
+            fue utilizada para el aspecto teórico para la realización de este proyecto.
+        </p>        
+        <button class="accordion">Artículos</button>
+        <div class="panel">
+            <ul>
+                <li>Díaz Barrado, M. (1996). La fotografía y los nuevos soportes para la información. Ayer, (24), 147-171</li>
+                <li>Díaz Barrado, M. (1998). Historia y fotografía: La memoria en imágenes. Historia, Antropología Y Fuentes Orales, (19), 23-45</li>
+                <li>De Roux Guerrero, S.J., R. R. (2019). De la totalización a la inculturación en América Latina. Theologica Xaveriana, (43), 225-232</li>
+                <li>Doyle, D. (2012). The Concept of Inculturation in Roman Catholicism: A Theological Consideration. U.S. Catholic Historian, 30(1), 1-13</li>
+                <li>Galván, J. (2011). Sincretismo, Performance y Creatividad en las Religiones Afrocubanas. Revista Cubana de Antropología Sociocultural, 2(2), 77-86</li>
+                <li>Guerrero, B. (2008). Religión y salud: prohibido asistir a la fiesta de La Tirana. Revista Ciencias Sociales, (20), 81-94</li>
+                <li>Guerrero, B. (2013). “Chile, aquí tienes a tu madre”: chilenización y religiosidad popular en el Norte Grande. Persona Y Sociedad, 27(3), 101-124</li>
+                <li>Guerrero, B. (2016). Espacio público y religiosidad popular en el Norte Grande de Chile. Revista Interdisciplinaria De Filosofía Y Psicología, 11(35), 44-55</li>
+                <li>Lara López, E. L. (2014). La fotografía como documento históricoartístico y etnográfico: una epistemología. Antropología Experimental, (5)</li>
+                <li>Méndez, L. (1995). La guerra de Arauco, un proceso de aculturación de la sociedad mapuche (siglos XVI y XVII). Revista Chilena de Humanidades, (16), 113-133</li>
+                <li>Murguia, E. I. (2011). Archivo, memoria e historia: cruzamientos y abordajes. Íconos - Revista de Ciencias Sociales, 0(41), 17-37</li>
+                <li>Pollak-Eltz, A. (2001). El sincretismo religioso en América Latina. Montalbán, (34), 147-172</li>
+            </ul>
+        </div>
+        <button class="accordion">Libros</button>
+        <div class="panel">
+            <ul>
+                <li>Bataille, G. (1987). La Parte Maldita. ICARIA</li>
+                <li>Castillo, A., Gómez-Moya, C., Groys, B., Brea, J. L., Sabrovsky, E., Costa, F., Barriendos, J., y Cabezas, O. A. (2012). Arte, archivo y tecnología. Ediciones Universidad Finis Terrae</li>
+                <li>Canetti, E. (1981). Masa y poder. Muchnik Editores</li>
+                <li>Dubois, P. (2015). El acto fotográfico y otros ensayos. La Marca editora</li>
+                <li>Eco, U. (2000). Tratado de semiótica general. Lumen</li>
+                <li>Freund, G. (2017). La fotografía como documento social. Gustavo Gili</li>
+                <li>Guasch, A. M. (2011). Arte y archivo, 1920-2010. Akal</li>
+                <li>Núñez, L. (2015). La Tirana. Desde sus orígenes hasta la actualidad. Ediciones del Desierto</li>
+                <li>Tausk, P. (1978). Historia de la fotografía en el siglo XX. Gustavo Gili</li>
+                <li>Van Kessel, J. (1989). La Iglesia Católica entre los aymaras. Ediciones Rehue</li>
+                <li>Van Kessel, J. (2018). Bailarines en el desierto: Tres sociedades de baile. Ediciones UC</li>
+                <li>Vilches, L. (1983). La lectura de la imagen. Paidós</li>
+            </ul>
+        </div>
     </div>
 </div>
-
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
 {% endblock %}

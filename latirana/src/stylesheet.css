@@ -163,7 +163,7 @@ h1, h2, h3, p, label {
     color: var(--darkblue);
 }
 
-a, p, label, sub {
+a, p, label, sub, ul, li {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
@@ -771,17 +771,77 @@ footer div.copyright p {
     min-height: 80vh;
 }
 
-.wrapper .text-box img { 
+.wrapper .text-box img.b3 { 
     width: 30%;
     height: 30%;
     margin: 15px;
 }
 
-.wrapper .text-box .text-post {
+.wrapper .text-box .text-post.b1 {
+    width: 85%;
+}
+
+.wrapper .text-box .text-post.b2 {
     width: 60%;
     margin: 15px;
+}
+
+.wrapper .text-box .text-post ul li{
+    list-style-type: circle;
+    padding: 5px 0;
 }
 
 .wrapper .text-box .text-post p {
     padding: 10px 0;
 }
+
+.wrapper .text-box .text-post img.info-dz{
+    width: 100%;
+}
+
+.wrapper .text-box .text-post h2 span.num {
+    background: var(--yellow);
+    border-radius: 100%;
+    padding: 5px 10px;
+    color: var(--blue);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    position: relative;
+    top: -3px;
+}
+
+
+/****ACORDEÓN****/
+
+.accordion {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    background-color: rgba(0,0,0,0) !important;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.17em;
+    font-weight: bold;
+    transition: 0.4s;
+    font-family: 'Chucara','Times New Roman', Times, serif;
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }

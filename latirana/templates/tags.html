@@ -1,47 +1,365 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 <div class="text-box">
-    <div class="text-post">
-        <h1>Tipologías de Archivo</h1>
+    <div class="text-post b1">
+        <h1>Cómo subir fotografías</h1>
         <p>
-            Para entender más a fondo las tipologías utilizadas en el formulario de subida de fotografías, 
-            está esta sección de la plataforma que explicará cada una de éstas.
+            Para entender más a fondo las tipologías utilizadas en el formulario de subida de fotografías y cómo
+            subir fotografías, está esta sección de la plataforma que explicará cada una de las secciones de la
+            subida de imágenes.
         </p>
-        <h2>Sociedad de Baile</h2>
+        <p>
+            Sólo podrán subirse fotografías de <b>Bailes</b> participando en la <b>Fiesta de La Tirana en el pueblo
+            de la Tirana</b>, durante el <b> mes de Julio</b>.
+        </p>
+        <img class="info-dz" src="{% static 'img/dropzone.png'%}">
+        <h2><span class="num">1</span> Dropzone o Zona de Arrastre</h2>
+        <p>
+            Ésta se refiere a la zona de subida de imágenes, la cual puede ser utilizada desde computador de escritorio
+            y dispositivos móviles, ya que se puede arrastrar una imagen desde una carpeta de escritorio, o hacer clic
+            a la zona de arrastre y desde ahí seleccionar la imagen en específico a subir.
+        </p>
+        <h2><span class="num">2</span> Sociedad de Baile</h2>
         <p>
             Las Sociedades de bailes son las agrupaciones a las que pertenece un único baile, cuales tienen 
             su propio nombre y fecha de fundación.
         </p>
-        <h2>Performance</h2>
+        <p>
+            Para facilitar el listado de los bailes a continuación, éstos se muestran en sus respectivas Asociaciones, 
+            cuales corresponden a agrupaciones de bailes que se distribuyen en la Primera, Segunda y Quinceava Región.
+        </p>
+        <button class="accordion">Asociación Central de Bailes Religiosos Valero Cebrián González</button>
+        <div class="panel">
+            <ul>
+                <li>Chunchos Chilenitos</li>
+                <li>Diablada Autentica</li>
+                <li>Diablada del Sol</li>
+                <li>Gauchos del Carmen</li>
+                <li>Gitano del Carmen</li>
+                <li>Gitano Promesante Hijos de María</li>
+                <li>Gitano Promesante de La Tirana</li>
+                <li>Gitano San Lorenzo Devotos del Carmen</li>
+                <li>Indios Dakota</li>
+                <li>Indios Devotos de María</li>
+                <li>Morenada Corazón de María</li>
+                <li>Morenada Servidores de María</li>
+                <li>Moreno Ali-Baba Tocopillano</li>
+                <li>Moreno Cóndor</li>
+                <li>Moreno de la Virgen del Carmen</li>
+                <li>Moreno Los Lira</li>
+                <li>Morenos Tocopillanos</li>
+                <li>Morenos San Miguel</li>
+                <li>Pieles Rojas</li>
+                <li>Pieles Rojas del Carmen</li>
+                <li>Piel Roja del Carmelo</li>
+                <li>Sambo Caporal del Sagrado Corazón</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos José María Caro</button>
+        <div class="panel">
+            <ul>
+                <li>Chino del Carmen</li>
+                <li>Chunchos del Carmelo de Serapio Cartagena</li>
+                <li>Cuyacas del Carmen de Victoria Vernal</li>
+                <li>Diablada Servidores de Jesús Nazareno</li>
+                <li>Diablada Servidores de la Virgen del Carmen</li>
+                <li>Diablada Siervos de Jesús y María</li>
+                <li>Gitanos del Carmen</li>
+                <li>Gitanos del Colorado</li>
+                <li>Gitanos de María</li>
+                <li>Gitanos Escuderos del Carmen</li>
+                <li>Indios Dakotas</li>
+                <li>Indios Cheyenns</li>
+                <li>Morenos Indúes</li>
+                <li>Osada Osos del Colorado</li>
+                <li>Pieles Rojas Cruzados</li>
+                <li>Pieles Rojas Católicos</li>
+                <li>Sambos Caporales de Nuestra Señora del Carmen</li>
+                <li>Tata-Jachura</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos María del Desierto</button>
+        <div class="panel">
+            <ul>
+                <li>Anta-Wara del Carmen</li>
+                <li>Chunchos Promesantes a la Virgen del Carmen de La Tirana</li>
+                <li>Diablada Hermanos del Norte Devotos de la Virgen del Carmen de La Tirana</li>
+                <li>Gitanos Promesantes a la Virgen del Carmen de La Tirana</li>
+                <li>Labradores de la Esperanza</li>
+                <li>Moreno Chileno Antonio Huerta Ugalde</li>
+                <li>Moreno Promesante a Nuestra Señora del Carmen de La Tirana</li>
+                <li>Zambos Caporales de La Tirana</li>
+                <li>Zambos Caporales de Kosca Reyes de la Tuntuna</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos Padre José Donoso</button>
+        <div class="panel">
+            <ul>
+                <li>Aldeanos de La Tirana</li>
+                <li>Árabes del Carmen</li>
+                <li>Carmelo Promesante</li>
+                <li>Chinos del Rosario de Nuestra Señora de Andacollo</li>
+                <li>Chinos Peregrinos Mariano Caro Inca</li>
+                <li>Chinos San Pedro de Coloso</li>
+                <li>Chunchos de la Virgen del Carmen</li>
+                <li>Chunchos de Nuestra Señora del Carmen</li>
+                <li>Chunchos Peregrinos de San Pedro Coloso</li>
+                <li>Diablada Hijos de Dios y María</li>
+                <li>Diablada María Reina</li>
+                <li>Diablada Morenada Gloria al Señor y María</li>
+                <li>Diablada Morenada Servidores de la Virgen del Carmen</li>
+                <li>Diablada Sagrado Corazón de Jesús</li>
+                <li>Español del Carmen</li>
+                <li>Gauchitos del Carmen</li>
+                <li>Gitano Español Promesero</li>
+                <li>Gitanos Ángeles del Carmen</li>
+                <li>Gitanos Corazón de Jesús</li>
+                <li>Gitanos Hijos de la Pampa</li>
+                <li>Gitanos Nazareno de Jesús</li>
+                <li>Gitanos Promesantes del Carmen</li>
+                <li>Gitanos Promeseros del Carmen</li>
+                <li>Gitanos Virgen del Rosario</li>
+                <li>Indiada del Carmen</li>
+                <li>Indios Apaches del Carmen</li>
+                <li>Indios Dakotas Discípulos de Jesús</li>
+                <li>Indios del Norte Sagrado Corazón de Jesús</li>
+                <li>Indios Devotos</li>
+                <li>Indios Promeseros Los Pelicanos de Nuestra Señora de Andacollo</li>
+                <li>Indios Sioux del Carmen</li>
+                <li>Indios Tobas</li>
+                <li>Morenada Nuestra Señora de la Merced</li>
+                <li>Morenos del Carmen</li>
+                <li>Morenos Marinos Hijos de María</li>
+                <li>Morenos Nuestra Señora del Carmen</li>
+                <li>Osada Blanca</li>
+                <li>Osada Corazón de María</li>
+                <li>Peregrino Danzante de Andacollo</li>
+                <li>Pieles Rojas del Carmen</li>
+                <li>Pieles Rojas El Olivar</li>
+                <li>Romeros de María</li>
+                <li>Sambos Caporales Marianos</li>
+                <li>Sambos Caporales Nuestra Señora de Andacollo</li>
+                <li>Siervos del Señor</li>
+                <li>Tinkus de Nuestra Señora del Perpetuo Socorro</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos Pedro de Valdivia</button>
+        <div class="panel">
+            <ul>
+                <li>Chunchos de Iquique de Mauricio y Segundo Galleguillos</li>
+                <li>Diablada del Salitre</li>
+                <li>Gitanos de Pedro de Valdivia</li>
+                <li>Indio Dakota Hijos de María</li>
+                <li>Indios Tobas del Norte Virgen de La Tirana</li>
+                <li>Moreno Los Promesantes del Carmen de Rigoberto Díaz H</li>
+                <li>Morenos del Carmen</li>
+                <li>Morenos Los Chilenitos</li>
+                <li>Osada del Carmen</li>
+                <li>Osada del Salitre</li>
+                <li>Pieles Rojas de Pedro de Valdivia</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos Salitre del Carmen</button>
+        <div class="panel">
+            <ul>
+                <li>Árabe Promesante San Rafael Arcángel</li>
+                <li>Chinitos del Carmen</li>
+                <li>Chuncho San Lorenzo</li>
+                <li>Diablada Hijos de María</li>
+                <li>Diablada Oro Blanco</li>
+                <li>Diablada San José</li>
+                <li>Gitanos de la Pampa 16 de Julio</li>
+                <li>Gitanos del Salitre</li>
+                <li>Indios Jalaguayos</li>
+                <li>Morenos Los Chilenos</li>
+                <li>Osada Hijos de Coya Sur</li>
+                <li>Pieles Rojas Promesantes del Salitre</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos Sur del Carmen</button>
+        <div class="panel">
+            <ul>
+                <li>Cuyacas de Iquique</li>
+                <li>Diablada Siervos de María</li>
+                <li>Diablada Reina Madre del Carmelo</li>
+                <li>Gitanos de Belén</li>
+                <li>Gitanos de Jesús Nazareno</li>
+                <li>Gitanos Nuestra Señora del Rosario</li>
+                <li>Gitanos San Andrés</li>
+                <li>Gitanos San Lorenzo</li>
+                <li>Gitanos San Luis de Avelino</li>
+                <li>Gitanos Santa Rosa</li>
+                <li>Gitanos Virgen de Andacollo</li>
+                <li>Huasos del Carmen</li>
+                <li>Indios Nubes Blanca de Palza y José Lamilla</li>
+                <li>Kullagua María de la Paz</li>
+                <li>Morenos Ali-Baba</li>
+                <li>Morenos Humberto Gutiérrez</li>
+                <li>Morenos de San Pedro de Cavancha</li>
+                <li>Morenos de Humberstone</li>
+                <li>Morenos María del Carmen</li>
+                <li>Morenada Nuestra Señora del Carmen de La Tirana</li>
+                <li>Moreno Sara del Carmen</li>
+                <li>Pieles Rojos Danzantes de Damián Mercado</li>
+                <li>Pieles Rojas del Carmen</li>
+                <li>Pieles Rojas Indios Pampinos</li>
+                <li>Promeseros de la Virgen del Carmen</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Bailes Religiosos Victoria-Alianza</button>
+        <div class="panel">
+            <ul>
+                <li>Aymara</li>
+                <li>Chunchos de Victoria</li>
+                <li>Diablada de Alianza Devotos de la Virgen del Carmen</li>
+                <li>Diablada Reina de Chile</li>
+                <li>Diablada de Victoria Devotos de la Virgen del Carmen</li>
+                <li>Gitanos de la Santa Cruz de Aroma</li>
+                <li>Gitanos Sagrado Corazón de Jesús</li>
+                <li>Indios Comanches</li>
+                <li>Kullaguada Devotos de la Virgen del Carmen</li>
+                <li>Morenos Chilenos</li>
+                <li>Morenos del Carmen de La Tirana</li>
+                <li>Morenos de Victoria</li>
+                <li>Morenada Reina del Tamarugal</li>
+                <li>Pieles Rojas de Alianza</li>
+                <li>Pieles Rojas de Ayquina</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Cuerpos de Bailes Ramiro Avalos</button>
+        <div class="panel">
+            <ul>
+                <li>Corona del Inca Nuestra Señora de Candelaria</li>
+                <li>Indio Águila Blanca</li>
+                <li>Indios Castores</li>
+                <li>Indios Sioux</li>
+                <li>Morenos del Carmen</li>
+                <li>Morenos Rusos del Carmen</li>
+                <li>Morenos Santa Inés</li>
+                <li>Pieles Rojas Águilas Blancas</li>
+                <li>Pieles Rojas del Espíritu Santo de Arturo Barahona</li>
+                <li>Pieles Rojas de Nuestra Señora de Candelaria</li>
+                <li>Pieles Rojas de Peña Chica</li>
+                <li>Pieles Rojas Estrella de María</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación de Sociedades Religiosas Virgen de La Tirana</button>
+        <div class="panel">
+            <ul>
+                <li>Bolivianada Nuestra Señora de los Ángeles</li>
+                <li>Chunchos Ñusta Huillac de Pablo Vargas</li>
+                <li>Cullaguas de San Pedro</li>
+                <li>Diablada Imperial Seguidores de Cristo y María</li>
+                <li>Gitanos Constantino Guzmán</li>
+                <li>Gitanos de Jesús Hijos de María</li>
+                <li>Gitanos Guillermo Díaz</li>
+                <li>Gitanos Promesantes</li>
+                <li>Kallahuayas de Jesús y María</li>
+                <li>Morenos Ali-Baba del Carmen</li>
+                <li>Morenos del Calvario</li>
+                <li>Morenos Hijos del Carmen</li>
+                <li>Morenos San Lorenzo</li>
+                <li>Thukkuri Corazón de María</li>
+            </ul>
+        </div>
+        <button class="accordion">Asociación Norte de Bailes Religiosos San José</button>
+        <div class="panel">
+            <ul>
+                <li>Bolivianada Santa Cecilia</li>
+                <li>Bolivianada San Marcos</li>
+                <li>Cullaguas del Carmen</li>
+                <li>Diablada Morenada Gloria a Dios y María</li>
+                <li>Gauchos Hijos de María</li>
+                <li>Gitano Español del Carmen</li>
+                <li>Gitanos Águilas del Norte Santísima Virgen del Carmen</li>
+                <li>Gitanos de Jesús</li>
+                <li>Gitanos del Carmen de Trinidad Ponce</li>
+                <li>Gitanos Peregrinos del Tamarugal</li>
+                <li>Gitanos Siervos de María</li>
+                <li>Indios Jalaguayos</li>
+                <li>Indios Sioux de María</li>
+                <li>Kallahuayas del Carmen</li>
+                <li>Kambas del Carmen</li>
+                <li>Morenos Canarios de Humberto Gutiérrez</li>
+                <li>Morenos Chilenitos de Santa Teresita</li>
+                <li>Morenos de Jesús</li>
+                <li>Morenos del Carmen</li>
+                <li>Morenos Kalimanes de Jesús</li>
+                <li>Morenos Promeseros del Señor y María</li>
+                <li>Morenos Sara del Carmen</li>
+                <li>Morenos Sultanes de Jesús</li>
+                <li>Pieles Rojas del Carmen</li>
+                <li>Zambos Caporales Reales</li>
+            </ul>
+        </div>
+
+        <h2><span class="num">3</span> Baile</h2>
         <p>
             La performance, o baile, corresponde al conjunto cultural que diferencia a un baile de otro. Sus trajes
-            mudanzas, ritmos y personajes, hacen que se pueda diferenciar un baile de otro. Entre los bailes que
-            se podrían llegar a reconocer están:
+            mudanzas, ritmos y personajes hacen que se pueda diferenciar un baile de otro. Entre los bailes que
+            se podrían llegar a reconocer, se encuentran:
             <ul>
+                <li>Árabes</li>
+                <li>Chinos</li>
                 <li>Chunchos</li>
                 <li>Cuyacas</li>
-                <li>Gitanos</li>
-                <li>Chinos</li>
-                <li>Diablada Morenada</li>
                 <li>Diablada</li>
-                <li>Sambos Caporales</li>
+                <li>Diablada Morenada</li>
+                <li>Gitanos</li>
+                <li>Indios</li>
                 <li>Morenada</li>
                 <li>Morenos</li>
-                <li>Indios</li>
-                <li>Árabes</li>
+                <li>Zambos Caporales</li>
             </ul>
         </p>
-        <h2>Año</h2>
-        <p>Corresponde al año en que la fotografía fue tomada. La fecha de días no gana relevancia, ya que las fotografías
-            sólo deben ser de bailes que participaron de la fiesta de La Tirana.
+        <h2><span class="num">4</span> Año</h2>
+        <p>
+            Esta sección se refiere al <b>año en que la fotografía fue tomada</b>. La fecha en días no gana relevancia, ya que las fotografías
+            sólo deben ser de bailes participando de la fiesta de La Tirana.
         </p>
-        <h2>Vestimenta</h2>
-        <p></p>
-        <h2>Personajes</h2>
-        <p></p>
-        <h2>Autor</h2>
-        <p></p>
+        <h2><span class="num">5</span> Vestimenta</h2>
+        <p>
+            Esta tipología corresponde a la instancia que determina la vestimenta que utilizan. Estas instancias son cuatro durante la fiesta:
+            <ul>
+                <li><h3>Traje de Entrada:</h3>
+                Es el traje utilizado al momento de bailar su entrada en la Cruz del Calvario.</li><br>
+                <li><h3>Media Gala:</h3>
+                Son todos los días que no corresponden a los otros tres.</li><br>
+                <li><h3>Gala:</h3>
+                El traje que es utilizado durante la procesión de la Virgen, el 16 de Julio, desde la medianoche del 15 de Julio.</li><br>
+                <li><h3>Despedida:</h3>
+                Es el último día del baile, donde se despiden de la Virgen del Carmen dentro del templo.</li>
+            </ul>
+        </p>
+        <h2><span class="num">6</span> Personajes</h2>
+        <p>
+            Es a quién está representado el/los sujetos fotografiados, que no siempe coincidirá con el nombre del baile. 
+            Pueden ser personajes múltiples, como es en una Diablada Morenada que incluye a figurines, o un personaje único
+            representado por todos los bailarines, como son los morenos.
+        </p>
+        <h2><span class="num">7</span> Autor</h2>
+        <p>
+            El nombre, si es que se conoce, debe corresponder únicamente a la persona que tomó la fotografía. Si se desconoce
+            la autoría, este punto se puede dejar vacío.
+        </p>
     </div>
 </div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
 {% endblock %}
