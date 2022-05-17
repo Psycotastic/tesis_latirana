@@ -189,8 +189,5 @@ def cofradia_detalle(request, entry_id):
 def fiesta_Tirana(request):
     return render(request, 'fiesta_tirana.html')
 
-def correcciones(request):
-    return render(request, 'correcciones.html')
-
 def tags(request):
     return render(request, 'tags.html')

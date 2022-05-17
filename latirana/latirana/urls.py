@@ -31,7 +31,6 @@ urlpatterns = [
     path('entries/', views.GetGuildEntriesView.as_view(), name='get-entries-view'),
     path('entry/<int:entry_id>',views.cofradia_detalle, name='detalle'),
     path('guilds/', views.cofradias, name='cofradias'),
-    path('corrections/', views.correcciones, name='correcciones'),
     path('info/', views.tags, name='tags'),
     path('tirana/', views.fiesta_Tirana, name='Tirana'),
     path('pdf/<int:id_post>/', views.GeneratePDF.as_view()),
