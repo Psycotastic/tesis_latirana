@@ -163,5 +163,5 @@ document.addEventListener('DOMContentLoaded', function () {
     $(".alert").click(function() {
         $(".alert").slideUp();
     });
-    
+   
 });
