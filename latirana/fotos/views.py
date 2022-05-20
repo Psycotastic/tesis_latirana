@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import ImageForm, GuildForm, SearchForm
-from .models import Post, Cofradia, GUILDS
+from .models import COSTUMES, Post, Cofradia, GUILDS
 from django.views.generic import View, TemplateView
 from django.http.response import JsonResponse
 from django.db import connection, transaction
@@ -103,7 +103,7 @@ def upload(request):
             return redirect( '/upload')
     else:
         form = ImageForm()
-    return render(request, 'upload.html', {'form': form, 'img_url' : img_url, 'guild_lists' : GUILDS})
+    return render(request, 'upload.html', {'form': form, 'img_url' : img_url, 'guild_lists' : GUILDS, 'costumes_list' : COSTUMES})
 
 def search(request):
     search_list = []

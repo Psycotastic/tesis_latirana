@@ -143,6 +143,13 @@ GUILDS = (
     ('Sociedad Religiosa y Baile Cuyacas de Iquique','Sociedad Religiosa y Baile Cuyacas de Iquique')
 )
 
+COSTUMES = (
+    ('Entrada', 'Entrada'),
+    ('Gala', 'Gala'),
+    ('Media Gala', 'Media Gala'),
+    ('Despedida', 'Despedida')
+)
+
 
 class Post(models.Model):
     image = models.ImageField(upload_to='images')

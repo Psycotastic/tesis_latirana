@@ -47,7 +47,12 @@
                     </i>
                 </div>
                 <div class="input">
-                    {{ form.costume }}
+                    <input id="costume" list="id_costumes" placeholder="Tipo de vestimenta según etapa de la fiesta" name="costume"/>
+                    <datalist id="id_costumes">
+                        {% for item in costumes_list %}
+                        <option>{{item.0}}</option>
+                        {% endfor %}
+                    </datalist>
                     <p>∗</p>
                     <i class="fas fa-question-circle tooltip">
                         <span class="tooltiptext">El traje utilizado según la instancia en la fiesta.</span>
