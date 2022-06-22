@@ -88,15 +88,24 @@ def upload(request):
             os.rename(registry.image.path, new_filename)
             #Read Exif Data
             image_exif = Image.open(new_filename)._getexif()
-            exif = exif = { ExifTags.TAGS[k]: v for k, v in image_exif.items() if k in ExifTags.TAGS and type(v) is not bytes }
-            cursor.execute("UPDATE fotos_post set model = '" + exif['Model'] +  "' where id = " + str(id))
             post_obj = Post.objects.get(id = id)
-            post_obj.apertureValue = exif['ApertureValue']
-            post_obj.exposureTime = exif['ExposureTime']
-            post_obj.focalLength = exif['FocalLength']
-            post_obj.iso = exif['ISOSpeedRatings']
-            post_obj.save()
-
+            try:
+                exif = exif = { ExifTags.TAGS[k]: v for k, v in image_exif.items() if k in ExifTags.TAGS and type(v) is not bytes }
+                cursor.execute("UPDATE fotos_post set model = '" + exif['Model'] +  "' where id = " + str(id))
+                post_obj.apertureValue = exif['ApertureValue']
+                post_obj.exposureTime = exif['ExposureTime']
+                post_obj.focalLength = exif['FocalLength']
+                post_obj.iso = exif['ISOSpeedRatings']
+            except:
+                print("Error: Imagen sin metadata")
+            finally:
+                post_obj.save()
+            # Resize image
+            image = Image.open(new_filename)
+            width, height = image.size
+            if width > 1500 or height > 1500:
+            	new_img = image.resize((int(width/2), int(height/2)))
+            	new_img.save(new_filename)
             # Get the current instance object to display in the template
             img_url = "\\media\\images\\" + new_filename.split("\\")[-1]
             request.session['latest_img_uploaded'] = img_url

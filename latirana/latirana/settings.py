@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^d!fo-kva3t96tew#$_7!zs^=ya&=l7eno#46(1yi42&fvqo5m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/src/'
-# STATIC_ROOT = str(BASE_DIR.joinpath('src'))
+STATIC_ROOT = '/home/ubuntu/tesis_latirana/latirana/src'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('src')),) # new
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # new
 
