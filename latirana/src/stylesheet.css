@@ -408,7 +408,8 @@ div.input_text div.input p {
     margin-right: 3px;
 }
 
-button#postsubmit {
+button#postsubmit,
+#photoModal.modal button {
     width: 100px;
     background: transparent;
     color: var(--yellow);
@@ -423,12 +424,14 @@ button#postsubmit {
     transition: 0.3s;
 }
 
-button#postsubmit:hover {
+button#postsubmit:hover,
+#photoModal.modal button:hover {
     border: 2px solid var(--blue);
     color: var(--blue);
 }
 
-button#postsubmit:active {
+button#postsubmit:active,
+#photoModal.modal button:active {
     background: var(--darkblue);
     color: var(--yellow);
 }
@@ -533,174 +536,7 @@ footer div.copyright p {
     color: var(--yellow);
 }
 
-/* RESPONSIVO */
-
-@media (min-width: 0px) and (max-width: 755px) {
-    div.wrapper {
-      width: 504px;
-    }
-    div.upload {
-        width: 200px;
-        height: 300px;
-      }
-
-    div.wrapper div.wrap {
-        height: 85vh;
-    }
-
-    form.f-upload {
-        flex-direction: column;
-    }
-
-    div.input_text {
-        width: 400px;
-        height: 500px;
-    }
-
-    nav form.search-bar button.search-button {
-        width: 10%;
-    }
-  }
-  
-  @media (min-width: 756px) and (max-width: 1007px) {
-    div.wrapper {
-        width: 756px;
-    }
-    div.upload {
-        width: 300px;
-        height: 350px;
-      }
-    
-    div.wrapper div.wrap {
-        height: 85vh;
-    }
-
-    form.f-upload {
-        flex-direction: column;
-    }
-
-    div.input_text {
-        width: 400px;
-        height: 500px;
-    }
-
-    nav form.search-bar button.search-button {
-        width: 10%;
-    }
-  }
-  
-  @media (min-width: 1008px) and (max-width: 1259px) {
-    div.wrapper {
-      width: 1008px;
-    }
-    div.upload {
-        width: 400px;
-        height: 400px;
-      }
-    
-    div.wrapper div.wrap {
-        height: 90vh;
-    }
-
-    form.f-upload {
-        flex-direction: column;
-    }
-
-    div.input_text {
-        width: 400px;
-        height: 500px;
-    }
-
-    nav form.search-bar button.search-button {
-        width: 6%;
-    }
-
-  }
-  
-  @media (min-width: 1260px) and (max-width: 1511px) {
-    div.wrapper {
-      width: 1260px;
-    }
-    div.upload {
-        width: 550px;
-        height: 450px;
-      }
-    
-    form.f-upload div.input_text input {
-        width: 90%
-    }
-
-    form.f-upload {
-        height: 450px;
-    }
-
-    div.input_text {
-        height: 450px;
-    }
-    nav form.search-bar button.search-button {
-        width: 6%;
-    }
-  }
-  
-  @media (min-width: 1512px) and (max-width: 1763px) {
-    div.wrapper {
-      width: 1512px;
-    }
-    div.upload {
-        width: 600px;
-        height: 500px;
-      }
-    
-    form.f-upload {
-        height: 500px;
-    }
-
-    div.input_text {
-        height: 500px;
-    }
-
-    nav form.search-bar button.search-button {
-        width: 3%;
-    }
-  }
-  
-  @media (min-width: 1764px) and (max-width: 4500px) {
-    div.wrapper {
-      width: 1764px;
-    }
-
-    div.upload {
-        width: 600px;
-        height: 500px;
-      }
-
-    div.modal-content {
-        max-width: 1000px;
-      }
-    
-    div.modal-content div.modal-inner div {
-        width: 500px;
-    }
-
-    div.modal-content img#imageModal {
-        max-height: 700px;
-        margin: 2%;
-        height: 100%;
-    }
-
-    form.f-upload {
-        height: 500px;
-    }
-
-    div.input_text {
-        height: 500px;
-    }
-    
-    nav form.search-bar button.search-button {
-        width: 3%;
-    }
-    
-  }
+/*ALERTS*/
 
 .alert {
     position: relative;
@@ -845,3 +681,236 @@ footer div.copyright p {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+  /* RESPONSIVO */
+
+@media (min-width: 0px) and (max-width: 755px) {
+    div.wrapper {
+      width: 504px;
+    }
+    div.upload {
+        width: 200px;
+        height: 300px;
+      }
+    
+    div.modal-content {
+        max-height: 80vh;
+    }
+
+    div.modal-content h1 {
+        font-size: 25px;
+    }
+    
+    div.modal-content p {
+        margin-bottom: 8px;
+        line-height: 8pt;
+    }
+
+    div.wrapper div.wrap {
+        height: 85vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+
+    nav form.search-bar button.search-button {
+        width: 10%;
+    }
+  }
+  
+  @media (min-width: 756px) and (max-width: 1007px) {
+    div.wrapper {
+        width: 756px;
+    }
+    div.upload {
+        width: 300px;
+        height: 350px;
+      }
+
+    div.modal-content {
+        max-height: 80vh;
+    }
+
+    div.modal-content h1 {
+        font-size: 25px;
+    }
+    
+    div.modal-content p {
+        margin-bottom: 8px;
+        line-height: 8pt;
+    }
+    
+    div.wrapper div.wrap {
+        height: 85vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+
+    nav form.search-bar button.search-button {
+        width: 10%;
+    }
+  }
+  
+  @media (min-width: 1008px) and (max-width: 1259px) {
+    div.wrapper {
+      width: 1008px;
+    }
+    div.upload {
+        width: 400px;
+        height: 400px;
+      }
+    
+    div.modal-content {
+        max-height: 80vh;
+    }
+    
+    div.wrapper div.wrap {
+        height: 90vh;
+    }
+
+    form.f-upload {
+        flex-direction: column;
+    }
+
+    div.input_text {
+        width: 400px;
+        height: 500px;
+    }
+
+    nav form.search-bar button.search-button {
+        width: 6%;
+    }
+
+  }
+  
+  @media (min-width: 1260px) and (max-width: 1511px) {
+    div.wrapper {
+      width: 1260px;
+    }
+    div.upload {
+        width: 550px;
+        height: 450px;
+      }
+
+    div.modal-content {
+        max-height: 80vh;
+    }
+    
+    form.f-upload div.input_text input {
+        width: 90%
+    }
+
+    form.f-upload {
+        height: 450px;
+    }
+
+    div.input_text {
+        height: 450px;
+    }
+    nav form.search-bar button.search-button {
+        width: 6%;
+    }
+  }
+  
+  @media (min-width: 1512px) and (max-width: 1763px) {
+    div.wrapper {
+      width: 1512px;
+    }
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
+
+    div.modal-content {
+        max-width: 1000px;
+        max-height: 80vh;
+    }
+    
+    form.f-upload {
+        height: 500px;
+    }
+
+    div.input_text {
+        height: 500px;
+    }
+
+    nav form.search-bar button.search-button {
+        width: 3%;
+    }
+  }
+  
+  @media (min-width: 1764px) and (max-width: 4500px) {
+    div.wrapper {
+      width: 1764px;
+    }
+
+    div.upload {
+        width: 600px;
+        height: 500px;
+      }
+
+    div.modal-content {
+        max-width: 1000px;
+      }
+    
+    div.modal-content div.modal-inner div {
+        width: 500px;
+    }
+
+    div.modal-content img#imageModal {
+        max-height: 700px;
+        margin: 2%;
+        height: 100%;
+    }
+
+    form.f-upload {
+        height: 500px;
+    }
+
+    div.input_text {
+        height: 500px;
+    }
+    
+    nav form.search-bar button.search-button {
+        width: 3%;
+    }
+    
+  }
+
+  @media (max-height: 700px) {
+    .modal {
+        padding-top: 40px !important;
+    }
+    
+    div.modal-content {
+        max-height: 70vh;
+        padding: 40px 20px;
+    }
+
+    div.modal-content h1 {
+        font-size: 20px;
+    }
+    
+    div.modal-content p {
+        margin-bottom: 5px;
+        line-height: 8pt;
+    }
+
+    div.modal-content img#imageModal {
+        max-width: 30%;
+        height: 100%;
+    }
+}
