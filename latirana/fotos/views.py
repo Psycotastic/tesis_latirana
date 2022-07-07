@@ -10,7 +10,7 @@ from .utils import render_to_pdf
 from django.template.loader import get_template
 import datetime
 import os
-
+import shutil
 
 class MainView(TemplateView):
     template_name= 'home.html'
@@ -81,14 +81,19 @@ def upload(request):
             cursor.execute("UPDATE fotos_post set image = '" + "images/" + new_img_name +  "' where id = " + str(id))
             transaction.commit()
             new_path = registry.image.path.split("\\")
+            #new_path.append("media")
+            #new_path.append("images")
             new_filename = ""
             for e in new_path[:-1]:
                 new_filename = new_filename + e + "\\"
             new_filename = new_filename + new_img_name
-            os.rename(registry.image.path, new_filename)
+            print(new_filename)
+            #os.rename(registry.image.path, new_filename)
             #Read Exif Data
-            image_exif = Image.open(new_filename)._getexif()
+            image_exif = Image.open(registry.image.path)._getexif()
+            print("AQUI")
             post_obj = Post.objects.get(id = id)
+            print("ALLA")
             try:
                 exif = exif = { ExifTags.TAGS[k]: v for k, v in image_exif.items() if k in ExifTags.TAGS and type(v) is not bytes }
                 cursor.execute("UPDATE fotos_post set model = '" + exif['Model'] +  "' where id = " + str(id))
@@ -101,14 +106,18 @@ def upload(request):
             finally:
                 post_obj.save()
             # Resize image
-            image = Image.open(new_filename)
+            print("AAAAA")
+            image = Image.open(registry.image.path)
             width, height = image.size
             if width > 1500 or height > 1500:
             	new_img = image.resize((int(width/2), int(height/2)))
-            	new_img.save(new_filename)
+            	new_img.save(registry.image.path)
             # Get the current instance object to display in the template
             img_url = "\\media\\images\\" + new_filename.split("\\")[-1]
             request.session['latest_img_uploaded'] = img_url
+            print(registry.image.path)
+            print(new_filename)
+            os.rename(registry.image.path, '/home/ubuntu/tesis_latirana/latirana/media/images/' + new_filename)
             return redirect( '/upload')
     else:
         form = ImageForm()
