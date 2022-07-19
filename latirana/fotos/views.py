@@ -91,9 +91,8 @@ def upload(request):
             #os.rename(registry.image.path, new_filename)
             #Read Exif Data
             image_exif = Image.open(registry.image.path)._getexif()
-            print("AQUI")
             post_obj = Post.objects.get(id = id)
-            print("ALLA")
+            rotate = 0
             try:
                 exif = exif = { ExifTags.TAGS[k]: v for k, v in image_exif.items() if k in ExifTags.TAGS and type(v) is not bytes }
                 cursor.execute("UPDATE fotos_post set model = '" + exif['Model'] +  "' where id = " + str(id))
@@ -101,17 +100,29 @@ def upload(request):
                 post_obj.exposureTime = exif['ExposureTime']
                 post_obj.focalLength = exif['FocalLength']
                 post_obj.iso = exif['ISOSpeedRatings']
+                rotate =  exif['Orientation']
             except:
                 print("Error: Imagen sin metadata")
             finally:
                 post_obj.save()
             # Resize image
-            print("AAAAA")
             image = Image.open(registry.image.path)
             width, height = image.size
+            width = width//2
+            height = height//2
+            print(width)
+            print(height)
+            print(rotate)
             if width > 1500 or height > 1500:
-            	new_img = image.resize((int(width/2), int(height/2)))
-            	new_img.save(registry.image.path)
+                new_size = (width, height)
+                new_img = image.resize(new_size)
+                if rotate == 3:
+                    new_img = new_img.rotate(180, expand=True)
+                elif rotate == 6:
+                    new_img = new_img.rotate(270, expand=True)
+                elif rotate == 8:
+                    new_img = new_img.rotate(90, expand=True)
+                new_img.save(registry.image.path)
             # Get the current instance object to display in the template
             img_url = "\\media\\images\\" + new_filename.split("\\")[-1]
             request.session['latest_img_uploaded'] = img_url

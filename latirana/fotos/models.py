@@ -140,7 +140,8 @@ GUILDS = (
     ('Sociedad Religiosa Siervos de María Diablada de Iquique','Sociedad Religiosa Siervos de María Diablada de Iquique'),
     ('Sociedad Religiosa Tata Jachura','Sociedad Religiosa Tata Jachura'),
     ('Sociedad Religiosa Thukkuri Corazón de María','Sociedad Religiosa Thukkuri Corazón de María'),
-    ('Sociedad Religiosa y Baile Cuyacas de Iquique','Sociedad Religiosa y Baile Cuyacas de Iquique')
+    ('Sociedad Religiosa y Baile Cuyacas de Iquique','Sociedad Religiosa y Baile Cuyacas de Iquique'),
+    ('Sociedad de Baile Religioso Marinos Hijos de María','Sociedad de Baile Religioso Marinos Hijos de María')
 )
 
 COSTUMES = (
